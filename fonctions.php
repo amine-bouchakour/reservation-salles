@@ -1,8 +1,11 @@
 <?php
 
+
 function inscription ()
 
 {
+    $connexion=mysqli_connect("Localhost","root","","reservationsalles");
+
     if(isset($_POST['valider'])==true)
     {
         if(isset($_POST['login']) and isset($_POST['password']) and isset($_POST['confirmpassword']))
@@ -10,7 +13,6 @@ function inscription ()
         {
             if(isset($_POST['password'])==isset($_POST['confirmpassword']))
             {
-                    $connexion=mysqli_connect("Localhost","root","","reservationsalles");
                     $requete2= "SELECT * FROM `utilisateurs` WHERE `login` = '".$_POST['login']."' ";
                     $query2= mysqli_query($connexion,$requete2);
                     $resultat2= mysqli_fetch_row($query2);
@@ -20,7 +22,6 @@ function inscription ()
                         if(!empty($_POST['login']) and !empty($_POST['password']))
 
                         {
-                            $connexion = mysqli_connect("localhost","root","","reservationsalles");
                             $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$_POST['password']."')";
                             $query= mysqli_query($connexion, $requete);
                             echo 'Inscription réussie'.'<br/>';
@@ -51,13 +52,14 @@ function inscription ()
 function connexion ()
 
 {
+    $connexion=mysqli_connect("Localhost","root","","reservationsalles");
+
     if(isset($_POST['valider']))
 
     {
         if(isset($_POST['login']) and isset($_POST['password']))
 
         {
-            $connexion = mysqli_connect("localhost","root","","reservationsalles");
             $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_POST['login']."' ";
             $query = mysqli_query($connexion,$requete);
             $resultat = mysqli_fetch_row($query);
@@ -80,33 +82,39 @@ function connexion ()
 function update ()
 
 {
-    echo $_SESSION['login'].'<br/>';
-
     $connexion = mysqli_connect("localhost","root","","reservationsalles");
     $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
     $query= mysqli_query($connexion,$requete);
     $resultat= mysqli_fetch_row($query);
 
-    var_dump($resultat);
+    $_SESSION['login']=$resultat[0];
+    $_SESSION['password']=$resultat[1];
 
-    echo $resultat[0].'<br/>';
-    echo $resultat[1].'<br/>';
 
     if(isset($_POST['valider']))
 
     {
+        if($_POST['password']==$_POST['confirmpassword'])
 
-        if($_POST['login']!=$resultat[0] or $_POST['password']!=$resultat[1] and $_POST['passwoord']==$_POST['confirmpasswoord'])
         {
-            echo 'Update validé'.'<br/>';
+            if($_POST['login']!=$resultat[0] or $_POST['password']!=$resultat[1])
+            {
+                echo 'Update validé'.'<br/>';
+                
+                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$_POST['password']."' WHERE login='".$_SESSION['login']."' ";
+                $query= mysqli_query($connexion,$requete);
+
+            }
+        
+        }
+
+        else 
+        {
+            echo 'Password et confirmation de mot de passe différents'.'<br/>';
         }
 
     }
-    
-
-    
-return $resultat;
-
+   
 
 
 }

@@ -1,18 +1,6 @@
-Cette page possède un formulaire permettant à l’utilisateur de modifier son
-login et son mot de passe
 
 
-<html>
 
-
-<form action="" method="post">
-<input type="text" name="login" value="<?php echo $resultat[0]; ?>"><br>
-<input type="password" name="password" value="<?php echo $resultat[1] ;?>"><br>
-<input type="confirmpassword" name="confirmpassword" value="<?php $resultat[1]; ?>"><br>
-<input type="submit" name="valider" value="Valider"><br>
-</form>
-
-</html>
 
 <?php
 session_start();
@@ -20,7 +8,26 @@ session_start();
 include('fonctions.php');
 update ();
 
+$connexion = mysqli_connect("localhost","root","","reservationsalles");
+$requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
+$query= mysqli_query($connexion,$requete);
+$resultat= mysqli_fetch_row($query);
+
+$_SESSION['login']=$resultat[0];
+$_SESSION['password']=$resultat[1];
 
 
 ?>
 
+
+<html>
+
+
+<form action="" method="post">
+<input type="text" name="login" value="<?php echo $_SESSION['login']; ?>"><br>
+<input type="text" name="password" value="<?php echo $_SESSION['password']; ;?>"><br>
+<input type="text" name="confirmpassword" value="<?php echo $_SESSION['password']; ?>"><br>
+<input type="submit" name="valider" value="Valider"><br>
+</form>
+
+</html>
