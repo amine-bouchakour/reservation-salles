@@ -5,9 +5,10 @@ function inscription ()
 {
     if(isset($_POST['valider'])==true)
     {
-        if(isset($_POST['login']) and !empty($_POST['login']) and isset($_POST['password']) and !empty($_POST['password']) and isset($_POST['confirmpassword']) and !empty($_POST['confirmpassword']))
+        if(isset($_POST['login']) and isset($_POST['password']) and isset($_POST['confirmpassword']))
+
         {
-            if(!empty($_POST['password'])==!empty($_POST['confirmpassword']))
+            if(isset($_POST['password'])==isset($_POST['confirmpassword']))
             {
                     $connexion=mysqli_connect("Localhost","root","","reservationsalles");
                     $requete2= "SELECT * FROM `utilisateurs` WHERE `login` = '".$_POST['login']."' ";
@@ -16,13 +17,24 @@ function inscription ()
 
                     if($resultat2==0)
                     {
-                        $connexion = mysqli_connect("localhost","root","","reservationsalles");
-                        $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$_POST['password']."')";
-                        $query= mysqli_query($connexion, $requete);
+                        if(!empty($_POST['login']) and !empty($_POST['password']))
+
+                        {
+                            $connexion = mysqli_connect("localhost","root","","reservationsalles");
+                            $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$_POST['password']."')";
+                            $query= mysqli_query($connexion, $requete);
+                            echo 'Inscription réussie'.'<br/>';
+                        }
+                    }
+
+                    else 
+                    {
+                        echo 'Login déjà existant'.'<br/>';
                     }
             }
     
-            else {
+            else 
+            {
                 echo 'Mot de passe et confirmation de mot de passe différents'.'<br/>';
             }
         }
@@ -69,7 +81,6 @@ function update ()
 
 {
     echo $_SESSION['login'].'<br/>';
-    
 
     $connexion = mysqli_connect("localhost","root","","reservationsalles");
     $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
@@ -80,6 +91,19 @@ function update ()
 
     echo $resultat[0].'<br/>';
     echo $resultat[1].'<br/>';
+
+    if(isset($_POST['valider']))
+
+    {
+
+        if($_POST['login']!=$resultat[0] or $_POST['password']!=$resultat[1] and $_POST['passwoord']==$_POST['confirmpasswoord'])
+        {
+            echo 'Update validé'.'<br/>';
+        }
+
+    }
+    
+
     
 return $resultat;
 
