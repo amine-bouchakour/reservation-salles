@@ -4,37 +4,65 @@ début, date de fin.
 <html>
 <br><br>
 
-<form action="" method="get">
+<form action="" method="post">
     <label for="">Titre : </label><input type="text" name="titre" placeholder="Titre"> <br>
     <label for="">Description : </label><input type="text" name="description" placeholder="Description"><br>
-    <label for="">Date : </label>
-    <input type="datetime-local" 
-       name="datetime" value="2020-01-01 9:00"
-       min="2020-01-01T09:00" max="2020-05-01T18:00">
+    <label for="">Heure début : </label><input type="time" name="debut"><br>
+    <label for="">Heure fin : </label><input type="time" name="fin"><br>
+
     <input type="submit" name="valider"><br>
 </form>
 
 </html>
 
 <?php 
+date_default_timezone_set('Europe/Paris');  
+$date = date("Y/m/d : H:i:s");
+echo 'Date et heure d\'aujourdhui '.$date.'<br/>';
+echo 'Heure début de réservations '.$_POST['debut'].'<br/>';
+echo 'Heure fin de réservations '.$_POST['fin'].'<br/>';
 
 
-if(isset($_GET['valider']))
+
+
+function reservations ()
 
 {
-    echo 'étape 1 Bon'.'<br/>';
+// SOUSTRACTION DES HEURES POUR CONNAITRE LE NOMBRE D'HEURE DE RESERVATION
+$h1 = strtotime($_POST['debut']);
+$h2 = strtotime($_POST['fin']);
+$Start = gmdate("H", $h2-$h1);
+$date = date("Y/m/d H:i");
 
-    if(!empty($_GET['titre']) and !empty($_GET['description']) and !empty($_GET['datetime']))
+$connexion=mysqli_connect("Localhost","root","","reservationsalles");
+
+    
+    if(isset($_POST['valider']))
+    
     {
-        $connexion=mysqli_connect("Localhost","root","","reservationsalles");
-        $requete = "INSERT INTO reservations (titre,description,date,heure) VALUES ('".$_GET['titre']."','".$_GET['description']."','".$_GET['datetime']."')";
-        $query= mysqli_query($connexion, $requete);
-        echo 'étape 2 Bon'.'<br/>';
+        echo 'étape 1 Bon'.'<br/>';
+        if($Start<=1)
+        {
+            echo 'La salle est à vous pendant '.$Start.' heure. '.'<br/>';
+        }
+        else {
+            echo 'La salle est à vous pendant '.$Start.' heures. '.'<br/>';
+
+        }
+
+    
+        if(!empty($_POST['titre']) and !empty($_POST['description']) and !empty($_POST['debut']) and !empty($_POST['fin']))
+        {
+            $requete = "INSERT INTO `reservations` (`id`, `titre`, `description`, `date`, `debut`, `fin`, `id_utilisateur`) VALUES (NULL, '".$_POST['titre']."', '".$_POST['description']."', '$date', '".$_POST['debut']."', '".$_POST['fin']."', '4')";
+            $query= mysqli_query($connexion, $requete);
+            echo 'étape 2 Bon'.'<br/>';
+        }
     }
+
 }
 
+reservations();
+
+
+
 ?>
-
-,'".$_GET['date']."','".$_GET['heure']."'
-
-INSERT INTO `reservations` (`id`, `titre`, `description`, `date`, `heure`, `id_utilisateur`) VALUES (NULL, 'musique', 'rahaha', '2020-01-16 00:00:00', '17:00:00', '1');
