@@ -74,7 +74,7 @@ function connexion ()
                 session_start();
                 $_SESSION['login']=$_POST['login'];
                 echo 'Bienvenue à toi '.$_POST['login'].'<br/>';
-                header('Location:profil.php');
+                header('Location:index.php');
             }
         }
     }
@@ -101,10 +101,9 @@ function update ()
             if($_POST['login']!=$resultat[0] or $_POST['password']!=$resultat[1])
             {
                 echo 'Update validé'.'<br/>';
-                
                 $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$_POST['password']."' WHERE login='".$_SESSION['login']."' ";
                 $query= mysqli_query($connexion,$requete);
-
+                header('Location:index.php');
             }
         
         }

@@ -7,8 +7,8 @@ début, date de fin.
 <form action="" method="post">
     <label for="">Titre : </label><input type="text" name="titre" placeholder="Titre"> <br>
     <label for="">Description : </label><input type="text" name="description" placeholder="Description"><br>
-    <label for="">Heure début : </label><input type="time" name="debut"><br>
-    <label for="">Heure fin : </label><input type="time" name="fin"><br>
+    <label for="">Heure début : </label><input type="datetime-local" name="debut"><br>
+    <label for="">Heure fin : </label><input type="datetime-local" name="fin"><br>
 
     <input type="submit" name="valider"><br>
 </form>
@@ -41,21 +41,26 @@ $connexion=mysqli_connect("Localhost","root","","reservationsalles");
     
     {
         echo 'étape 1 Bon'.'<br/>';
-        if($Start<=1)
-        {
-            echo 'La salle est à vous pendant '.$Start.' heure. '.'<br/>';
-        }
-        else {
-            echo 'La salle est à vous pendant '.$Start.' heures. '.'<br/>';
 
-        }
-
-    
         if(!empty($_POST['titre']) and !empty($_POST['description']) and !empty($_POST['debut']) and !empty($_POST['fin']))
         {
-            $requete = "INSERT INTO `reservations` (`id`, `titre`, `description`, `date`, `debut`, `fin`, `id_utilisateur`) VALUES (NULL, '".$_POST['titre']."', '".$_POST['description']."', '$date', '".$_POST['debut']."', '".$_POST['fin']."', '4')";
+            $requete = "INSERT INTO `reservations` (`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES (NULL, '".$_POST['titre']."', '".$_POST['description']."', '".$_POST['debut']."', '".$_POST['fin']."', '6');";
             $query= mysqli_query($connexion, $requete);
             echo 'étape 2 Bon'.'<br/>';
+        }
+        else 
+        {
+            echo 'Veuillez saisir toutes les informations demandées, merci.'.'<br/>';
+        }
+
+        if($Start<=1 and $Start>0)
+        {
+            echo 'Vous réservez la salle pendant '.$Start.' heure. '.'<br/>';
+        }
+        if($Start>1) 
+        {
+            echo 'Vous réservez la salle pendant '.$Start.' heures. '.'<br/>';
+
         }
     }
 
