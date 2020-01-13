@@ -22,10 +22,12 @@ function inscription ()
                         if(!empty($_POST['login']) and !empty($_POST['password']))
 
                         {
-                            $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$_POST['password']."')";
+                            $password=$_POST['password'];
+                            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                            $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$hashed_password."')";
                             $query= mysqli_query($connexion, $requete);
                             echo 'Inscription réussie'.'<br/>';
-                            header("Location:connexion.php");
+                            // header("Location:connexion.php");
                         }
                     }
 
@@ -64,18 +66,31 @@ function connexion ()
             $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_POST['login']."' ";
             $query = mysqli_query($connexion,$requete);
             $resultat = mysqli_fetch_row($query);
+
+            $password=$_POST['password'];
+
+
+
             
             if($resultat==0)
             {
-                echo "Identifiants inconnue ou incorrect".'<br/>';
+                echo "Le login est inconnu".'<br/>';
             }
-            elseif ($resultat[0]==$_POST['login'] and $resultat[1]==$_POST['password'])
+            
+            elseif ($resultat[0]==$_POST['login'] and password_verify($password, $resultat[1]))
              {
                 session_start();
                 $_SESSION['login']=$_POST['login'];
                 echo 'Bienvenue à toi '.$_POST['login'].'<br/>';
                 header('Location:index.php');
             }
+            else {
+                echo 'Mot de passe incorrect.'.'<br/>';
+            }
+        }
+
+        else {
+            echo 'Veuillez saisir votre login et mot de passe.'.'<br/>';
         }
     }
 }
@@ -101,7 +116,9 @@ function update ()
             if($_POST['login']!=$resultat[0] or $_POST['password']!=$resultat[1])
             {
                 echo 'Update validé'.'<br/>';
-                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$_POST['password']."' WHERE login='".$_SESSION['login']."' ";
+                $password=$_POST['password'];
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$hashed_password."' WHERE login='".$_SESSION['login']."' ";
                 $query= mysqli_query($connexion,$requete);
                 header('Location:index.php');
             }
@@ -118,6 +135,7 @@ function update ()
 
 
 }
+
 
 
 

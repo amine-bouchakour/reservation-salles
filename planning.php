@@ -9,9 +9,23 @@ ont une durée fixe d’une heure.
 
 <html>
 
-<head>
+
+<head>  
     <link rel="stylesheet" href="planning.css">
+    <title>Planning</title>
+
 </head>
+
+<?php
+date_default_timezone_set('Europe/Paris');  
+$date = date("d/m/Y : H:i:s");
+
+echo $date.'<br/>';
+
+
+
+
+?>
 
 <body>
 
@@ -27,11 +41,35 @@ ont une durée fixe d’une heure.
 
         <tr>
             <td>8h</td>
-            <td> <a href="reservation-form.php"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php"> <?php echo 'Libre' ?> </a> </td>
+            <td> <a href="reservation-form.php" target="_blank"> <?php
+            
+            $connexion = mysqli_connect("localhost","root","","reservationsalles");
+            $requete="SELECT titre,description,debut,fin FROM reservations";
+            $query=mysqli_query($connexion,$requete);
+            $resultat=mysqli_fetch_all($query);
+            
+            if($resultat[0][2]==("2020-01-24 08:00:00"))
+            {
+                echo 'rhalalal'.'<br/>';
+            }
+
+            
+
+
+
+            echo $resultat[0][0].'<br/>';
+            echo $resultat[0][1].'<br/>';
+            echo $resultat[0][2].'<br/>';
+            echo $resultat[0][3].'<br/>';
+          
+
+
+            
+            echo 'Libre' ?> </a> </td>
+            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
+            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
+            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
+            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
         </tr>
         <tr>
             <td>9h</td>

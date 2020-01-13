@@ -4,6 +4,8 @@ informations, alors l’utilisateur devient connecté et une (ou plusieurs)
 variables de session sont créées.
 
 <html>
+<title>Connexion</title>
+
 
 
 <form action="" method="post">
@@ -19,5 +21,7 @@ variables de session sont créées.
 
 include('fonctions.php');
 connexion ();
+
+
 
 ?>

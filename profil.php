@@ -21,12 +21,13 @@ $_SESSION['password']=$resultat[1];
 
 
 <html>
+<title>Profil</title>
 
 
 <form action="" method="post">
 <input type="text" name="login" value="<?php echo $_SESSION['login']; ?>"><br>
-<input type="text" name="password" value="<?php echo $_SESSION['password']; ;?>"><br>
-<input type="text" name="confirmpassword" value="<?php echo $_SESSION['password']; ?>"><br>
+<input type="password" name="password" value="<?php echo $_SESSION['password']; ;?>"><br>
+<input type="password" name="confirmpassword" value="<?php echo $_SESSION['password']; ?>"><br>
 <input type="submit" name="valider" value="Valider"><br>
 </form>
 

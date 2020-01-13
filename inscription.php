@@ -4,6 +4,8 @@ qu’un utilisateur remplit ce formulaire, les données sont insérées dans la
 base de données et l’utilisateur est redirigé vers la page de connexion.
 
 <html>
+<title>inscription</title>
+
 
 
 <form action="" method="post">
