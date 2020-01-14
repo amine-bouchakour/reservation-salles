@@ -3,11 +3,34 @@ background-color:rgba(161, 161, 246, 0.993);
 margin: 0px;
 }
 
-table,tr,td {
+table{
 border: 2px black solid;
-padding: 10px 40px;
-margin: 100px auto;
+margin: 10px 145px;
 text-align: center;
 font-weight: bold;
 font-size:20px;
+display: flex;
+flex-wrap: wrap;
+}
+
+tr{
+    margin: 10px 162px;
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+
+#planningtab
+{
+padding: 20px 90px 0px 90px;
+width: 70px;
+height: 40px;
+border: 2px black solid;
+}
+
+.aligntab{
+    margin: 0px 0px 0px 4px;
 }
