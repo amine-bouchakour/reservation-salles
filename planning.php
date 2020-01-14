@@ -45,6 +45,23 @@ function verificationjourheure()
 
 verificationjourheure();
 
+$tabdate=array('Lundi','Mardi','Mercredi','Jeudi','Vendredi');
+$tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
+
+echo count($tabheure).'<br/>';
+
+$j=0;
+$h=0;
+
+
+while($j<count($tabdate))
+    {
+        echo '<tr>'.$tabdate[$j].' '.'<tr/>';
+        ++$j;
+        
+    }
+
+echo '<br>';
 
 
 
@@ -120,7 +137,7 @@ verificationjourheure();
             <td></td>
         </tr>
         <tr>
-            <td>MIDI</td>
+            <td>12h-13h</td>
             <td>Pause repas</td>
             <td>Pause repas</td>
             <td>Pause repas</td>
