@@ -9,7 +9,6 @@ ont une durée fixe d’une heure.
 <br><br>
 <html>
 
-
 <head>  
     <link rel="stylesheet" href="planning.css">
     <title>Planning</title>
@@ -21,6 +20,7 @@ date_default_timezone_set('Europe/Paris');
 
 
 function verificationjourheure()
+
 {
     $date = date("d/m/Y : H:i:s");
     $datexdeb = date("d/m/Y : 08:00:00");
@@ -37,7 +37,7 @@ function verificationjourheure()
                 echo 'GOOD DAY AND HOUR'.'<br/>'; // TOUT EST VALIDE ICI, HEURE COMME JOUR
             }
             else {
-                echo 'Les réservations ne se font que du lundi au vendredi, et de 8h à 19h.'.'<br/>';
+                echo 'Les réservations ne se font que du lundi au vendredi de 8h à 19h.'.'<br/>'.'<br/>';
 
             }
         }
@@ -45,31 +45,54 @@ function verificationjourheure()
 
 verificationjourheure();
 
-$tabdate=array('Lundi','Mardi','Mercredi','Jeudi','Vendredi');
-$tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
-
-echo count($tabheure).'<br/>';
-
-$j=0;
-$h=0;
 
 
-while($j<count($tabdate))
+function planning()
+
+{
+    $tabdate=array(1,2,3,4,5);
+    $tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
+    $h=0;
+    $j=0;
+    while($j<count($tabheure))
     {
-        echo '<tr>'.$tabdate[$j].' '.'<tr/>';
+        foreach($tabdate as $jour)
+        {
+            echo '<a href="">'.'<td id="planningtab">'.$jour.$tabheure[$h].' '.'<td/>'.'</a>';
+        }
+        ++$h;
         ++$j;
-        
+        echo '<br/>';
     }
+}
 
-echo '<br>';
 
 
 
 
 ?>
 
+
+
 <body>
 
+<table>
+    <thead class="aligntab">
+        <td id="planningtab">Lundi</td>
+        <td id="planningtab">Mardi</td>
+        <td id="planningtab">Mercredi</td>
+        <td id="planningtab">Jeudi</td>
+        <td id="planningtab">Vendredi</td>
+
+    </thead>
+    
+    <tbody>
+        <?php planning(); ?>
+    </tbody>
+
+</table>
+
+<!-- 
     <table>
         <tr>
             <td>Horaire/Jour</td>
@@ -192,7 +215,7 @@ echo '<br>';
             <td></td>
             <td></td>
         </tr>
-    </table>
+    </table> -->
 
 </body>
 
