@@ -41,7 +41,7 @@ if(isset($_POST['debut']) and isset($_POST['fin']))
 }
 
 
-if(isset($_SESSION['login']))
+if(isset($_SESSION['login']) and isset($_SESSION['ID']))
 {
     echo 'Le login est '.$_SESSION['login'].'<br/>';
     echo 'L\'ID du login est '.$_SESSION['ID'].'<br/>';

@@ -27,7 +27,7 @@ function inscription ()
                             $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$hashed_password."')";
                             $query= mysqli_query($connexion, $requete);
                             echo 'Inscription réussie'.'<br/>';
-                            // header("Location:connexion.php");
+                            header("Location:connexion.php");
                         }
                     }
 
