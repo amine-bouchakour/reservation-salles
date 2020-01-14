@@ -18,7 +18,9 @@ if(isset($_SESSION['login']))
     <a href="profil.php">Profil</a><br>
     <a href="planning.php">Planning</a> <br>
     <a href="reservation.php">Réservations</a><br>
-    <a href="reservation-form">Formulaire de réservations</a> <br>
+    <a href="reservation-form.php">Formulaire de réservations</a> <br>
+    <a href="deconnexion.php">Se déconnecter</a> <br>
+
     <?php
 }
 else 
