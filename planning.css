@@ -14,23 +14,36 @@ flex-wrap: wrap;
 }
 
 tr{
-    margin: 10px 162px;
-    text-align: center;
-    font-weight: bold;
-    font-size:20px;
-    display: flex;
-    flex-wrap: wrap;
-    }
+margin: 10px 162px;
+text-align: center;
+font-weight: bold;
+font-size:20px;
+display: flex;
+flex-wrap: wrap;
+}
 
 
-#planningtab
-{
-padding: 20px 90px 0px 90px;
+#planningtab{
+padding: 10px 90px 0px 90px;
 width: 70px;
-height: 40px;
+height: 60px;
 border: 2px black solid;
+background-color: rgb(226, 202, 193);
+
+}
+
+#planningtab1{
+padding: 10px 90px 20px 90px;
+width: 70px;
+height: 60px;
+border: 2px black solid;
+background-color: rgb(233, 177, 156);
 }
 
 .aligntab{
-    margin: 0px 0px 0px 4px;
+margin: 0px 0px 0px 4px;
+}
+
+a:link{
+    text-decoration: none;
 }
