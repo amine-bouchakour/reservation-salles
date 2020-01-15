@@ -47,6 +47,7 @@ verificationjourheure();
 
 
 
+
 function planning()
 
 {
@@ -58,13 +59,56 @@ function planning()
     {
         foreach($tabdate as $jour)
         {
-            echo '<a href="">'.'<td id="planningtab">'.$jour.$tabheure[$h].' '.'<td/>'.'</a>';
+            $aaa=$jour.$tabheure[$h];
+
+
+            if($aaa==18)
+            {
+                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.'Libre'.' '.'</a>'.'<td/>';
+
+            }
+            else 
+            {
+                echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' '.'</a>'.'<td/>';
+                // $_SESSION['id_evenement']=$jour.$tabheure[$h];
+            }
+            
         }
         ++$h;
         ++$j;
         echo '<br/>';
     }
+
 }
+
+// REQUETE NOM ET TITRE DES RESERVATIONS
+$connexion = mysqli_connect("localhost","root","","reservationsalles");
+            $requete="SELECT debut,fin FROM reservations";
+            $query=mysqli_query($connexion,$requete);
+            $resultat=mysqli_fetch_all($query);
+            var_dump($resultat);
+            // if($resultat[0][2]==("2020-01-24 08:00:00"))
+            // {
+            //     echo 'rhalalal'.'<br/>';
+            // }
+            echo $resultat[0][0].'<br/>'; // DATE DE DEBUT EVENEMENTS
+            echo $resultat[0][1].'<br/>'.'<br/>'; // DATE DE FIN EVENEMENTS
+            echo $resultat[1][0].'<br/>'; // DATE DE DEBUT EVENEMENTS
+            echo $resultat[1][1].'<br/>'.'<br/>'; // DATE DE FIN EVENEMENTS
+
+
+            
+
+$datedeb=$resultat;
+$datedeb=date("H:i:s");
+
+echo $datedeb[0].$datedeb[1].'<br/>'.'<br/>';
+$id_table=$datedeb[0].$datedeb[1];
+
+echo $id_table;
+
+
+
 
 
 
@@ -87,7 +131,8 @@ function planning()
     </thead>
     
     <tbody>
-        <?php planning(); ?>
+        <?php planning(); 
+        ?>
     </tbody>
 
 </table>
@@ -105,31 +150,9 @@ function planning()
 
         <tr>
             <td>8h</td>
-            <td> <a href="reservation-form.php" target="_blank"> <?php
+            <td> <a href="reservation-form.php" target="_blank"> 
             
-            $connexion = mysqli_connect("localhost","root","","reservationsalles");
-            $requete="SELECT titre,description,debut,fin FROM reservations";
-            $query=mysqli_query($connexion,$requete);
-            $resultat=mysqli_fetch_all($query);
-            
-            if($resultat[0][2]==("2020-01-24 08:00:00"))
-            {
-                echo 'rhalalal'.'<br/>';
-            }
-
-            
-
-
-
-            echo $resultat[0][0].'<br/>';
-            echo $resultat[0][1].'<br/>';
-            echo $resultat[0][2].'<br/>';
-            echo $resultat[0][3].'<br/>';
-          
-
-
-            
-            echo 'Libre' ?> </a> </td>
+             </a> </td>
             <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
             <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
             <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
