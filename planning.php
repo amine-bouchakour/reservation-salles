@@ -33,7 +33,7 @@ function planning()
             $aaa=$jour.$tabheure[$h];
 
             
-            if($aaa==318)
+            if($aaa<112)
             {
                 echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Libre'.'</a>'.'<td/>';
             }
