@@ -45,7 +45,6 @@ echo 'id-utilisateur = '.$resultat[0][8].'<br/>';
 
 
 
-
 echo $_SESSION['login'].'<br/>';
 
 }
