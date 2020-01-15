@@ -19,35 +19,6 @@ ont une durée fixe d’une heure.
 date_default_timezone_set('Europe/Paris');  
 
 
-function verificationjourheure()
-
-{
-    $date = date("d/m/Y : H:i:s");
-    $datexdeb = date("d/m/Y : 08:00:00");
-    $datexfin = date("d/m/Y : 19:00:00");
-    if (date('l')=='Saturday' or date('l')=='Sunday')
-        {
-            echo 'Impossible de faire une reservations le Week-end'.'<br/>';
-        }
-    
-    else
-        {
-            if($date>$datexdeb and $date<$datexfin)
-            {
-                echo 'GOOD DAY AND HOUR'.'<br/>'; // TOUT EST VALIDE ICI, HEURE COMME JOUR
-            }
-            else {
-                echo 'Les réservations ne se font que du lundi au vendredi de 8h à 19h.'.'<br/>'.'<br/>';
-
-            }
-        }
-}
-
-verificationjourheure();
-
-
-
-
 function planning()
 
 {
@@ -61,16 +32,22 @@ function planning()
         {
             $aaa=$jour.$tabheure[$h];
 
-
-            if($aaa==18)
+            
+            if($aaa==318)
             {
-                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.'Libre'.' '.'</a>'.'<td/>';
-
+                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Libre'.'</a>'.'<td/>';
             }
             else 
             {
-                echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' '.'</a>'.'<td/>';
-                // $_SESSION['id_evenement']=$jour.$tabheure[$h];
+                if($aaa==112 or $aaa==212 or $aaa==312 or $aaa==412 or $aaa==512)
+                {
+                    echo '<td id="planningtab1">'.'<a href="reservation.php"><h4>'.' PAUSE'.'</h4></a>'.'<td/>';
+
+                }
+                else {
+                    echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' Réservé'.'</a>'.'<td/>';
+                    // $_SESSION['id_evenement']=$jour.$tabheure[$h];
+                }
             }
             
         }
@@ -137,108 +114,7 @@ echo $id_table;
 
 </table>
 
-<!-- 
-    <table>
-        <tr>
-            <td>Horaire/Jour</td>
-            <td>LUNDI</td>
-            <td>MARDI</td>
-            <td>MERCREDI</td>
-            <td>JEUDI</td>
-            <td>VENDREDI</td>
-        </tr>
 
-        <tr>
-            <td>8h</td>
-            <td> <a href="reservation-form.php" target="_blank"> 
-            
-             </a> </td>
-            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
-            <td> <a href="reservation-form.php" target="_blank"> <?php echo 'Libre' ?> </a> </td>
-        </tr>
-        <tr>
-            <td>9h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>10h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>11h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>12h-13h</td>
-            <td>Pause repas</td>
-            <td>Pause repas</td>
-            <td>Pause repas</td>
-            <td>Pause repas</td>
-            <td>Pause repas</td>
-        </tr>
-        <tr>
-            <td>13h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>14h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>15h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>16h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>17h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>18h</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table> -->
 
 </body>
 
