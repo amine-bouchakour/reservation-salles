@@ -15,6 +15,7 @@ connectées peuvent accéder aux événements.
 session_start();
 
 
+
 if(empty($_SESSION['login']) and !isset($_SESSION['login']))
 {
     header('Location:connexion.php');
