@@ -136,7 +136,30 @@ function update ()
 
 }
 
+function verificationjourheure()
 
+{
+    $date = date("d/m/Y : H:i:s");
+    $datexdeb = date("d/m/Y : 08:00:00");
+    $datexfin = date("d/m/Y : 19:00:00");
+    if (date('l')=='Saturday' or date('l')=='Sunday')
+        {
+            echo 'Impossible de faire une reservations le Week-end'.'<br/>';
+        }
+    
+    else
+        {
+            if($date>$datexdeb and $date<$datexfin)
+            {
+                echo 'GOOD DAY AND HOUR !!!!!!!'.'<br/>'; // TOUT EST VALIDE ICI, HEURE COMME JOUR
+                
+            }
+            else {
+                echo 'Les réservations ne se font que du lundi au vendredi de 8h à 19h.'.'<br/>'.'<br/>';
+
+            }
+        }
+}
 
 
 
