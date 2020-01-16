@@ -40,8 +40,19 @@ border: 2px black solid;
 background-color: rgb(233, 177, 156);
 }
 
+#planningtab2{
+width: 248px;
+padding-top:30px;
+height: 60px;
+border: 2.5px black solid;
+background-color: rgb(233, 177, 156);
+font-size:20px;
+text-align: center;
+font-weight: bold;
+}
+
 .aligntab{
-margin: 0px 0px 0px 4px;
+margin: 0px 0px 0px 0.5px;
 }
 
 a:link{
