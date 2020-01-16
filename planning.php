@@ -22,7 +22,7 @@ date_default_timezone_set('Europe/Paris');
 function planning()
 
 {
-    $tabdate=array(1,2,3,4,5);
+    $tabdate=array('Mon','Tue','Wed','Thu','Fri');
     $tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
     $h=0;
     $j=0;
@@ -41,7 +41,7 @@ function planning()
             {
                 if($aaa==112 or $aaa==212 or $aaa==312 or $aaa==412 or $aaa==512)
                 {
-                    echo '<td id="planningtab1">'.'<a href="reservation.php"><h4>'.' PAUSE'.'</h4></a>'.'<td/>';
+                    echo '<td id="planningtab1">'.'<h4>'.' PAUSE'.'</h4>'.'<td/>';
 
                 }
                 else {
@@ -60,29 +60,28 @@ function planning()
 
 // REQUETE NOM ET TITRE DES RESERVATIONS
 $connexion = mysqli_connect("localhost","root","","reservationsalles");
-            $requete="SELECT debut,fin FROM reservations";
+            $requete="SELECT debut FROM reservations";
             $query=mysqli_query($connexion,$requete);
             $resultat=mysqli_fetch_all($query);
             var_dump($resultat);
-            // if($resultat[0][2]==("2020-01-24 08:00:00"))
-            // {
-            //     echo 'rhalalal'.'<br/>';
-            // }
-            echo $resultat[0][0].'<br/>'; // DATE DE DEBUT EVENEMENTS
-            echo $resultat[0][1].'<br/>'.'<br/>'; // DATE DE FIN EVENEMENTS
-            echo $resultat[1][0].'<br/>'; // DATE DE DEBUT EVENEMENTS
-            echo $resultat[1][1].'<br/>'.'<br/>'; // DATE DE FIN EVENEMENTS
 
+$j=0;
 
-            
+while($j<count($resultat))
+{
+    $jour = $resultat[$j][0][8].$resultat[$j][0][9];
+    $annee = $resultat[$j][0][0].$resultat[$j][0][1].$resultat[$j][0][2].$resultat[$j][0][3];
+    $mois =$resultat[$j][0][5].$resultat[$j][0][6];
+    $heure=$resultat[$j][0][11].$resultat[$j][0][12];
+    
+    $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
+    $bbb=date('DH', $timestamp);
+    
+    echo $bbb.'<br/>';
 
-$datedeb=$resultat;
-$datedeb=date("H:i:s");
+    ++$j;
+}
 
-echo $datedeb[0].$datedeb[1].'<br/>'.'<br/>';
-$id_table=$datedeb[0].$datedeb[1];
-
-echo $id_table;
 
 
 
@@ -99,11 +98,11 @@ echo $id_table;
 
 <table>
     <thead class="aligntab">
-        <td id="planningtab">Lundi</td>
-        <td id="planningtab">Mardi</td>
-        <td id="planningtab">Mercredi</td>
-        <td id="planningtab">Jeudi</td>
-        <td id="planningtab">Vendredi</td>
+        <td id="planningtab2">LUNDI</td>
+        <td id="planningtab2">MARDI</td>
+        <td id="planningtab2">MERCREDI</td>
+        <td id="planningtab2">JEUDI</td>
+        <td id="planningtab2">VENDREDI</td>
 
     </thead>
     
