@@ -64,7 +64,7 @@ function reservationsform ()
         {
         $date = date("d/m/Y : H:i:s");
         $datexdeb = date("d/m/Y : 08:00:00");
-        $datexfin = date("d/m/Y : 21:00:00");
+        $datexfin = date("d/m/Y : 19:00:00");
 
         // VERIFICATION SI JOUR DE SEMAINE POUR RESERVE LUNDI A VENDREDI
         if (date('l')=='Saturday' or date('l')=='Sunday')
@@ -125,9 +125,9 @@ function reservationsform ()
 
                                                             if($resultat1==0)
                                                             {
-                                                            echo 'GOOD DAY AND HOUR AGAIN §§§§§'.'<br/>';  
                                                             $requete2 = "INSERT INTO `reservations` (`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES (NULL, '".$_POST['titre']."', '".$_POST['description']."', '".$_POST['debut']."', '".$_POST['fin']."', '".$_SESSION['ID']."');";
                                                             $query2= mysqli_query($connexion, $requete2);
+                                                            header('Location:planning.php');
                                                             }
 
                                                             else 
