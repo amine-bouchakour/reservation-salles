@@ -17,7 +17,6 @@ if(isset($_SESSION['login']))
     ?>
     <a href="profil.php">Profil</a><br>
     <a href="planning.php">Planning</a> <br>
-    <a href="reservation.php">Réservations</a><br>
     <a href="reservation-form.php">Formulaire de réservations</a> <br>
     <a href="deconnexion.php">Se déconnecter</a> <br>
 
@@ -27,10 +26,9 @@ else
 {
     echo 'Bienvenue à toi '.'<br/>';
    ?>
-    <a href="connexion.php">Connexion</a><br>
-    <a href="inscription.php">Inscription</a><br>
-    <a href="profil.php">Profil</a><br>
     <a href="planning.php">Planning</a> <br>
+    <a href="connexion.php">Se connecter</a><br>
+    <a href="inscription.php">S'inscrire</a><br>
     <?php
 }
 
