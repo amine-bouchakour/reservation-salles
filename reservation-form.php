@@ -204,44 +204,6 @@ function reservationsform ()
 reservationsform();
 
 
-// $date = date("Y/m/d H:i");
-// $datedh=$_POST['debut'][8].$_POST['debut'][9].$_POST['debut'][11].$_POST['debut'][12];
-                        
-
-// $date = date("dH");
-// echo $date.'<br/>';
-// echo $datedh.'<br/>';
-
-
-// $date = date("i");
-// echo $date.'<br/>';
-// $datehp=$_POST['debut'][14].$_POST['debut'][15];
-
-
-
-
-
-
-
-    
-
-    // if(($date = date("Y"))==$datey)
-    // {
-    //     echo 'good'.'<br/>';
-    //     if(($date = date("m"))==$datem)
-    //     {
-    //         echo 'good 11'.'<br/>';
-
-    //         if(($date = date("d"))<=$dated)
-    //         {
-    //             echo 'good 22222'.'<br/>';
-
-    //         }
-
-    //     }
-
-    // }
-
 
 
 ?>
