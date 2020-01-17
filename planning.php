@@ -88,6 +88,7 @@ function planning()
                                     echo '<td id="planningtab3">'.'<a href="reservation.php">'.$ttt.' Réservé'.'</a>'.'<td/>';
                                     break;
                                     
+                                    
                                 }
                                         
                             }
