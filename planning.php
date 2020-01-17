@@ -24,40 +24,56 @@ function planning()
 {
 
             $tabdate=array('Mon','Tue','Wed','Thu','Fri');
-            $tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
+            $tabheure=array('08','09',10,11,12,13,14,15,16,17,18);
             $h=0;
             $j=0;
 
-
             while($j<count($tabheure))
             {
-
 
                     foreach($tabdate as $jour)
                     {
 
                         $aaa=$jour.$tabheure[$h];
                         
-                        
-                        if($aaa<218)
-                        {
-                            echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Réservé'.'</a>'.'<td/>';
-                            
-                        }
-                        
-                        else 
-                        {
-                            // if($aaa=112 or $aaa==212 or $aaa==312 or $aaa==412 or $aaa==512)
-                            // {
-                            //     echo '<td id="planningtab1">'.'<h4>'.' PAUSE'.'</h4>'.'<td/>';
-                            // }
 
-                            // else 
-                            // {
-                                echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' Libre'.'</a>'.'<td/>';
-                                // $_SESSION['id_evenement']=$jour.$tabheure[$h];
-                        }
-                        
+                                // REQUETE NOM ET TITRE DES RESERVATIONS
+                            $connexion = mysqli_connect("localhost","root","","reservationsalles");
+                            $requete="SELECT titre,description,debut FROM reservations";
+                            $query=mysqli_query($connexion,$requete);
+                            $resultat=mysqli_fetch_all($query);
+                            
+                            $k=0;
+                            
+                            while($k<count($resultat))
+                            {
+                               
+
+                                $jour = $resultat[$k][2][8].$resultat[$k][2][9];
+                                $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
+                                $mois =$resultat[$k][2][5].$resultat[$k][2][6];
+                                $heure=$resultat[$k][2][11].$resultat[$k][2][12];
+                                $ttt=$resultat[$k][0];
+                                $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
+                                $bbb=date('DH', $timestamp);
+                                
+                                ++$k;
+
+                                if($aaa==$bbb)
+                                {
+                                    echo '<td id="planningtab3">'.'<a href="reservation.php">'.$ttt.' Réservé'.'</a>'.'<td/>';
+                                    break;
+                                }
+                                        
+                            }
+
+                            if($aaa!=$bbb)
+                            {
+
+                                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Libre'.'</a>'.'<td/>';
+
+
+                            }
                     }
                 ++$h;
                 ++$j;
@@ -81,24 +97,33 @@ function planning()
     
     while($k<count($resultat))
     {
+       
+
         $jour = $resultat[$k][2][8].$resultat[$k][2][9];
         $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
         $mois =$resultat[$k][2][5].$resultat[$k][2][6];
         $heure=$resultat[$k][2][11].$resultat[$k][2][12];
+        $ttt=$resultat[$k][0];
         $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
         $bbb=date('DH', $timestamp);
-        
+
         echo $bbb.'<br/>';
         
         ++$k;
     }
 
 
+echo $resultat[0][0].'<br/>';
+$ttt=$resultat[0][0];
+echo $resultat[0][1].'<br/>';
 
 
-// echo $resultat[0][0].'<br/>';
-// echo $resultat[0][1];
+// $jjj=$resultat[$k][2][8].$resultat[$k][2][9];
 
+// if($resultat[$k][2][8]=0)
+// {
+//     $jjj=$resultat[$k][2][9];
+// }
 
 
 
