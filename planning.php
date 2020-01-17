@@ -22,65 +22,85 @@ date_default_timezone_set('Europe/Paris');
 function planning()
 
 {
-    $tabdate=array('Mon','Tue','Wed','Thu','Fri');
-    $tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
-    $h=0;
-    $j=0;
-    while($j<count($tabheure))
+
+            $tabdate=array('Mon','Tue','Wed','Thu','Fri');
+            $tabheure=array(8,9,10,11,12,13,14,15,16,17,18);
+            $h=0;
+            $j=0;
+
+
+            while($j<count($tabheure))
+            {
+
+
+                    foreach($tabdate as $jour)
+                    {
+
+                        $aaa=$jour.$tabheure[$h];
+                        
+                        
+                        if($aaa<218)
+                        {
+                            echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Réservé'.'</a>'.'<td/>';
+                            
+                        }
+                        
+                        else 
+                        {
+                            // if($aaa=112 or $aaa==212 or $aaa==312 or $aaa==412 or $aaa==512)
+                            // {
+                            //     echo '<td id="planningtab1">'.'<h4>'.' PAUSE'.'</h4>'.'<td/>';
+                            // }
+
+                            // else 
+                            // {
+                                echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' Libre'.'</a>'.'<td/>';
+                                // $_SESSION['id_evenement']=$jour.$tabheure[$h];
+                        }
+                        
+                    }
+                ++$h;
+                ++$j;
+                echo '<br/>';
+            }
+          
+
+
+}
+
+
+
+
+    // REQUETE NOM ET TITRE DES RESERVATIONS
+    $connexion = mysqli_connect("localhost","root","","reservationsalles");
+    $requete="SELECT titre,description,debut FROM reservations";
+    $query=mysqli_query($connexion,$requete);
+    $resultat=mysqli_fetch_all($query);
+    
+    $k=0;
+    
+    while($k<count($resultat))
     {
-        foreach($tabdate as $jour)
-        {
-            $aaa=$jour.$tabheure[$h];
-
-            
-            if($aaa<112)
-            {
-                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Libre'.'</a>'.'<td/>';
-            }
-            else 
-            {
-                if($aaa==112 or $aaa==212 or $aaa==312 or $aaa==412 or $aaa==512)
-                {
-                    echo '<td id="planningtab1">'.'<h4>'.' PAUSE'.'</h4>'.'<td/>';
-
-                }
-                else {
-                    echo '<td id="planningtab">'.'<a href="reservation.php">'.$aaa.' Réservé'.'</a>'.'<td/>';
-                    // $_SESSION['id_evenement']=$jour.$tabheure[$h];
-                }
-            }
-            
-        }
-        ++$h;
-        ++$j;
-        echo '<br/>';
+        $jour = $resultat[$k][2][8].$resultat[$k][2][9];
+        $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
+        $mois =$resultat[$k][2][5].$resultat[$k][2][6];
+        $heure=$resultat[$k][2][11].$resultat[$k][2][12];
+        $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
+        $bbb=date('DH', $timestamp);
+        
+        echo $bbb.'<br/>';
+        
+        ++$k;
     }
 
-}
 
-// REQUETE NOM ET TITRE DES RESERVATIONS
-$connexion = mysqli_connect("localhost","root","","reservationsalles");
-            $requete="SELECT debut FROM reservations";
-            $query=mysqli_query($connexion,$requete);
-            $resultat=mysqli_fetch_all($query);
-            var_dump($resultat);
 
-$j=0;
 
-while($j<count($resultat))
-{
-    $jour = $resultat[$j][0][8].$resultat[$j][0][9];
-    $annee = $resultat[$j][0][0].$resultat[$j][0][1].$resultat[$j][0][2].$resultat[$j][0][3];
-    $mois =$resultat[$j][0][5].$resultat[$j][0][6];
-    $heure=$resultat[$j][0][11].$resultat[$j][0][12];
-    
-    $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
-    $bbb=date('DH', $timestamp);
-    
-    echo $bbb.'<br/>';
+// echo $resultat[0][0].'<br/>';
+// echo $resultat[0][1];
 
-    ++$j;
-}
+
+
 
 
 
