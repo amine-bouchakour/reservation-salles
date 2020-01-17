@@ -64,7 +64,7 @@ function reservationsform ()
         {
         $date = date("d/m/Y : H:i:s");
         $datexdeb = date("d/m/Y : 08:00:00");
-        $datexfin = date("d/m/Y : 22:00:00");
+        $datexfin = date("d/m/Y : 19:00:00");
 
         // VERIFICATION SI JOUR DE SEMAINE POUR RESERVE LUNDI A VENDREDI
         if (date('l')=='Saturday' or date('l')=='Sunday')
@@ -107,7 +107,7 @@ function reservationsform ()
                                         if(($date = date("dH"))<$datedh )
                                         {
                                           
-                                            if($dateh>=8 and $dateh<=22)
+                                            if($dateh>=8 and $dateh<=19)
                                             {
                                                 
                                                 if($datehp==0)
