@@ -63,17 +63,22 @@ function planning()
                                 {
                                     echo '<td id="planningtab3">'.'<a href="reservation.php">'.$ttt.' Réservé'.'</a>'.'<td/>';
                                     break;
+                                    
                                 }
                                         
                             }
 
                             if($aaa!=$bbb)
                             {
+                                $aaa=$tabheure[$h];
 
-                                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.' Libre'.'</a>'.'<td/>';
 
-
+                                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.'h'.' Libre'.'</a>'.'<td/>';
+                                
                             }
+
+                            
+
                     }
                 ++$h;
                 ++$j;
@@ -87,35 +92,35 @@ function planning()
 
 
 
-    // REQUETE NOM ET TITRE DES RESERVATIONS
-    $connexion = mysqli_connect("localhost","root","","reservationsalles");
-    $requete="SELECT titre,description,debut FROM reservations";
-    $query=mysqli_query($connexion,$requete);
-    $resultat=mysqli_fetch_all($query);
+//     // REQUETE NOM ET TITRE DES RESERVATIONS
+//     $connexion = mysqli_connect("localhost","root","","reservationsalles");
+//     $requete="SELECT titre,description,debut FROM reservations";
+//     $query=mysqli_query($connexion,$requete);
+//     $resultat=mysqli_fetch_all($query);
     
-    $k=0;
+//     $k=0;
     
-    while($k<count($resultat))
-    {
+//     while($k<count($resultat))
+//     {
        
 
-        $jour = $resultat[$k][2][8].$resultat[$k][2][9];
-        $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
-        $mois =$resultat[$k][2][5].$resultat[$k][2][6];
-        $heure=$resultat[$k][2][11].$resultat[$k][2][12];
-        $ttt=$resultat[$k][0];
-        $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
-        $bbb=date('DH', $timestamp);
+//         $jour = $resultat[$k][2][8].$resultat[$k][2][9];
+//         $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
+//         $mois =$resultat[$k][2][5].$resultat[$k][2][6];
+//         $heure=$resultat[$k][2][11].$resultat[$k][2][12];
+//         $ttt=$resultat[$k][0];
+//         $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
+//         $bbb=date('DH', $timestamp);
 
-        echo $bbb.'<br/>';
+//         echo $bbb.'<br/>';
         
-        ++$k;
-    }
+//         ++$k;
+//     }
 
 
-echo $resultat[0][0].'<br/>';
-$ttt=$resultat[0][0];
-echo $resultat[0][1].'<br/>';
+// echo $resultat[0][0].'<br/>';
+// $ttt=$resultat[0][0];
+// echo $resultat[0][1].'<br/>';
 
 
 // $jjj=$resultat[$k][2][8].$resultat[$k][2][9];
