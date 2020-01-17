@@ -51,6 +51,15 @@ text-align: center;
 font-weight: bold;
 }
 
+#planningtab3{
+    padding: 10px 90px 0px 90px;
+    width: 70px;
+    height: 60px;
+    border: 2px black solid;
+    background-color: rgb(230, 147, 116);
+    
+    }
+
 .aligntab{
 margin: 0px 0px 0px 0.5px;
 }
