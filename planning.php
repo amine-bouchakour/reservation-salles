@@ -76,6 +76,7 @@ function planning()
                                 $mois =$resultat[$k][3][5].$resultat[$k][3][6];
                                 $heure=$resultat[$k][3][11].$resultat[$k][3][12];
                                 $ttt=$resultat[$k][1];
+                                $ttt=ucfirst($ttt);
                                 $iii=$resultat[$k][0]; //Id evenement
                                 $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
                                 $bbb=date('DH', $timestamp);
@@ -90,16 +91,22 @@ function planning()
                                     $query1=mysqli_query($connexion,$requete1);
                                     $resultat1=mysqli_fetch_row($query1);
                                     $nnn=$resultat1[0];//nom de la personne faisant la réservation
+                                    $nnn=ucfirst($nnn);
 
                                     $id = $iii;
-                                    echo "<td id='planningtab3'>"."<a href='reservation.php?id=".$id."'>".$ttt.'<br/>'.$nnn."</a>"."<td/>";
+                                    echo "<td id='planningtab3'>"."<a href='reservation.php?id=".$id."'>"."Titre : ".$ttt.'<br/>'."Réservation : ".$nnn."</a>"."<td/>";
                                     break;
 
                                 }
                                         
                             }
 
-                            if($aaa!=$bbb)
+                            if($aaa=='Mon12' or $aaa=='Tue12' or $aaa=='Wed12' or $aaa=='Thu12' or $aaa=='Fri12')
+                            {
+                                echo '<td id="planningtab4">'.'PAUSE REPAS'.'<td/>';
+                            }
+
+                            elseif($aaa!=$bbb)
                             {
 
                                 $aaa=$tabheure[$h];
@@ -118,59 +125,6 @@ function planning()
 
 
 }
-// echo '<br/>';
-// echo '<br/>';
-// echo '<br/>';
-// echo '<br/>';
-
-
-// $id = "Robert";
-
-// echo "<td id='planningtab3'>"."<a href='reservation.php?id=".$id."'>"."Réservé"."</a>"."<td/>";
-
-
-
-//     // REQUETE NOM ET TITRE DES RESERVATIONS
-//      $connexion = mysqli_connect("localhost","root","","reservationsalles");
-//      $requete="SELECT id,titre,description,debut FROM reservations";
-//      $query=mysqli_query($connexion,$requete);
-//      $resultat=mysqli_fetch_all($query);
-//      var_dump($resultat);
-
-    
-//     $k=0;
-    
-//     while($k<count($resultat))
-//     {
-       
-
-//         $jour = $resultat[$k][2][8].$resultat[$k][2][9];
-//         $annee = $resultat[$k][2][0].$resultat[$k][2][1].$resultat[$k][2][2].$resultat[$k][2][3];
-//         $mois =$resultat[$k][2][5].$resultat[$k][2][6];
-//         $heure=$resultat[$k][2][11].$resultat[$k][2][12];
-//         $ttt=$resultat[$k][0];
-//         $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
-//         $bbb=date('DH', $timestamp);
-
-//         echo $bbb.'<br/>';
-        
-//         ++$k;
-//     }
-
-
-// echo $resultat[0][0].'<br/>';
-// $ttt=$resultat[0][0];
-// echo $resultat[0][1].'<br/>';
-
-
-// $jjj=$resultat[$k][2][8].$resultat[$k][2][9];
-
-// if($resultat[$k][2][8]=0)
-// {
-//     $jjj=$resultat[$k][2][9];
-// }
-
-
 
 
 
