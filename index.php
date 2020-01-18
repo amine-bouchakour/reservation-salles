@@ -1,11 +1,6 @@
-Une page d’accueil qui présente votre site (index.php)
-<br>
 <html>
 <title>Index</title>
 
-
-
-<br>
 
 <?php
 session_start();
