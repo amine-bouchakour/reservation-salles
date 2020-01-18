@@ -30,6 +30,7 @@ height: 60px;
 border: 2px black solid;
 background-color: rgb(226, 202, 193);
 
+
 }
 
 #planningtab1{
@@ -38,6 +39,7 @@ width: 70px;
 height: 60px;
 border: 2px black solid;
 background-color: rgb(233, 177, 156);
+
 }
 
 #planningtab2{
@@ -52,12 +54,11 @@ font-weight: bold;
 }
 
 #planningtab3{
-    padding: 10px 90px 0px 90px;
-    width: 70px;
+    padding: 10px 0px 0px 0px;
+    width: 250px;
     height: 60px;
     border: 2px black solid;
     background-color: rgb(230, 147, 116);
-    
     }
 
 .aligntab{
