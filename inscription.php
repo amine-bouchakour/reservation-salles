@@ -12,7 +12,7 @@ base de données et l’utilisateur est redirigé vers la page de connexion.
 <input type="text" name="login" placeholder="login"><br>
 <input type="password" name="password" placeholder="password"><br>
 <input type="password" name="confirmpassword" placeholder="confirmpassword"><br>
-<input type="submit" name="valider" value="Valider"><br>
+<input type="submit" name="valider" value="S'inscrire"><br>
 </form>
 
 
