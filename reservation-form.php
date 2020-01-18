@@ -24,28 +24,14 @@ else {
     <label for="">Description : </label><input type="text" name="description" placeholder="Description"><br>
     <label for="">Heure début : </label><input type="datetime-local" name="debut"><br>
     <label for="">Heure fin : </label><input type="datetime-local" name="fin"><br>
-
-    <input type="submit" name="valider"><br>
+    <input type="submit" name="valider" value="Réserver"><br>
 </form>
 
 </html>
 
 <?php 
 
-date_default_timezone_set('Europe/Paris');  
-$date = date("Y/m/d : H:i:s");
-if(isset($_POST['debut']) and isset($_POST['fin']))
-{
-    echo 'Heure début de réservations '.$_POST['debut'].'<br/>';
-    echo 'Heure fin de réservations '.$_POST['fin'].'<br/>';
-}
 
-
-if(isset($_SESSION['login']) and isset($_SESSION['ID']))
-{
-    echo 'Le login est '.$_SESSION['login'].'<br/>';
-    echo 'L\'ID du login est '.$_SESSION['ID'].'<br/>';
-}
 
 
 
@@ -64,12 +50,12 @@ function reservationsform ()
         {
         $date = date("d/m/Y : H:i:s");
         $datexdeb = date("d/m/Y : 08:00:00");
-        $datexfin = date("d/m/Y : 19:00:00");
+        $datexfin = date("d/m/Y : 23:00:00");
 
-        // VERIFICATION SI JOUR DE SEMAINE POUR RESERVE LUNDI A VENDREDI
-        if (date('l')=='Saturday' or date('l')=='Sunday')
+        // VERIFICATION SI JOUR DE SEMAINE POUR RESERVE LUNDI A VENDREDI    date('l')=='Saturday' or 
+        if (date('l')=='Sunday')
             {
-                echo 'Impossible de faire une reservations le Week-end'.'<br/>';
+                echo 'Impossible de faire une reservations le Week-end.'.'<br/>';
             }
         
         else
@@ -132,19 +118,19 @@ function reservationsform ()
 
                                                             else 
                                                             {
-                                                                echo 'La salle est déjà réservé pour cette heure-ci'.'<br/>';
+                                                                echo 'La salle est déjà réservé pour cette heure-ci.'.'<br/>';
                                                             }
                                                         }
 
                                                         else if($Start==0)
                                                         {
-                                                            echo 'Vous n\'avez fait aucune réservation'.'<br/>';
+                                                            echo 'Vous n\'avez fait aucune réservation.'.'<br/>';
                                                         }
                                                     }
 
                                                     else
                                                     {
-                                                        echo 'Vos dates de début d\'évenement et de fin doivent être le même jour'.'<br/>';
+                                                        echo 'Vos dates de début d\'évenement et de fin doivent être le même jour.'.'<br/>';
                                                     }
                                                 }
 
@@ -156,7 +142,7 @@ function reservationsform ()
 
                                             else
                                             {
-                                                echo "Les salles sont accessible que de 8h à 19h".'<br/>';
+                                                echo "Les salles sont accessible que de 8h à 19h.".'<br/>';
                                             }
                                         }
 
@@ -202,8 +188,6 @@ function reservationsform ()
 }
 
 reservationsform();
-
-
 
 
 ?>
