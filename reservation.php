@@ -5,6 +5,8 @@ http://localhost/reservationsalles/evenement/?id=1) Seuls les personnes
 connectées peuvent accéder aux événements.
 
 <br>
+<br>
+<br>
 <html>
 <title>réservations</title>
 
@@ -14,6 +16,7 @@ connectées peuvent accéder aux événements.
 <?php
 session_start();
 
+$_GET["id"];
 
 
 if(empty($_SESSION['login']) and !isset($_SESSION['login']))
@@ -28,51 +31,36 @@ else {
 
 
     $connexion= mysqli_connect("localhost","root","","reservationsalles");
-    $requete= "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur";
+    $requete= "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE reservations.id='".$_GET["id"]."'";
     $query=mysqli_query($connexion,$requete);
+
+    $requete1= "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur";
+    $query1=mysqli_query($connexion,$requete1);
+    $resultat1=mysqli_fetch_all($query1);
+
     $resultat=mysqli_fetch_all($query);
 
-    echo $_SESSION['login'].'<br/>';
-    echo '<br/>'.'Nombre de réservation dans la BDD :'.count($resultat).'<br/>'.'<br/>';
 
     $x=0;
     $j=0;
     while($j<count($resultat))
     {
 
-        if($resultat[$j][1]==$_SESSION['login'])
+        if($resultat[$j][3]==$_GET["id"])
         {
             
-            echo 'Nom du créateur : '.$_SESSION['login'].'<br/>';
-            echo 'id util = '.$resultat[$j][0].'<br/>';
-            echo 'Login = '.$resultat[$j][1].'<br/>';
-            echo 'id reserv = '.$resultat[$j][3].'<br/>';
+            echo 'Créateur de l\'évènement : '.$resultat[$j][1].'<br/>';
             echo 'Titre = '.$resultat[$j][4].'<br/>';
             echo 'Description = '.$resultat[$j][5].'<br/>';
-            echo 'Jour et heure de DEBUT de réservations = '.$resultat[$j][6].'<br/>';
-            echo 'Jour et heure de FIN de réservations = '.$resultat[$j][7].'<br/>';
-            echo 'id-utilisateur = '.$resultat[$j][8].'<br/>';
-            echo $resultat[0][6][0].'<br/>'.'<br/>';
+            echo 'Début de  la réservation = '.$resultat[$j][6].'<br/>';
+            echo 'Fin de la réservation = '.$resultat[$j][7].'<br/>';
             ++$x;
         }
     ++$j;
     }
+    echo '<br/>';
 
-    if($x==0)
-    {
 
-        echo 'Vous n\'avait effectué aucune réservation '.$_SESSION['login'].'.'.'<br/>';
-    }
-    if($x==1)
-    {
-
-        echo 'Vous avait effectué '.$x.' réservation '.$_SESSION['login'].'.'.'<br/>';
-    }
-    else
-    {
-        echo 'Vous avait effectué '.$x.' réservations '.$_SESSION['login'].'.'.'<br/>';
-
-    }
 
 
 
