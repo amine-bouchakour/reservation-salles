@@ -56,15 +56,16 @@ else {
             echo 'Fin de la réservation = '.$resultat[$j][7].'<br/>';
             ++$x;
         }
+
+        if($_SESSION['login']==$resultat[$j][1])
+        {
+            echo '<br/>'.'Suppression evenements'.'<br/>';
+        }
+
+
     ++$j;
     }
     echo '<br/>';
-
-
-
-
-
-
 
 
 }
