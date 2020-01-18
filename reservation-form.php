@@ -20,8 +20,9 @@ else {
 ?>
 
 <form action="" method="post">
-    <label for="">Titre : </label><input type="text" name="titre" placeholder="Titre"> <br>
-    <label for="">Description : </label><input type="text" name="description" placeholder="Description"><br>
+    <label for="">Titre : </label><input type="text" name="titre" maxlength="20"> <br><br>
+    <label for="">Description : </label><br>
+    <textarea type="text" name="description"  cols="25" rows="5" maxlength="80"></textarea><br><br>
     <label for="">Heure début : </label><input type="datetime-local" name="debut"><br>
     <label for="">Heure fin : </label><input type="datetime-local" name="fin"><br>
     <input type="submit" name="valider" value="Réserver"><br>
