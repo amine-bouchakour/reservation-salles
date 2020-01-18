@@ -13,37 +13,28 @@ session_start();
 
 if(isset($_SESSION['login']))
 {
-    echo 'Bienvenue à toi '.$_SESSION['login'].'<br/>';
     ?>
     <a href="profil.php">Profil</a><br>
     <a href="planning.php">Planning</a> <br>
     <a href="reservation-form.php">Formulaire de réservations</a> <br>
     <a href="deconnexion.php">Se déconnecter</a> <br>
-
     <?php
+    echo '<br/>'.'Bienvenue à toi '.$_SESSION['login'].'<br/>'.'<br/>';
 }
 else 
 {
-    echo 'Bienvenue à toi '.'<br/>';
    ?>
     <a href="planning.php">Planning</a> <br>
     <a href="connexion.php">Se connecter</a><br>
     <a href="inscription.php">S'inscrire</a><br>
     <?php
+    echo '<br/>'.'Bienvenue à toi '.'<br/>'.'<br/>';
 }
 
 
 
 
 ?>
-
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-
 
 
 </html>
