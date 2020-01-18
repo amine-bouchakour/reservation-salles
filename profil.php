@@ -28,7 +28,7 @@ $_SESSION['password']=$resultat[1];
 <input type="text" name="login" value="<?php echo $_SESSION['login']; ?>"><br>
 <input type="password" name="password" value="<?php echo $_SESSION['password']; ;?>"><br>
 <input type="password" name="confirmpassword" value="<?php echo $_SESSION['password']; ?>"><br>
-<input type="submit" name="valider" value="Valider"><br>
+<input type="submit" name="valider" value="Modifier profil"><br>
 </form>
 
 </html>
