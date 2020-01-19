@@ -1,7 +1,8 @@
 <html>
+    <head>
 <title>Connexion</title>
-
-
+<link rel="stylesheet" href="planning.css">
+</head>
 
 <form action="" method="post">
 <input type="text" name="login" placeholder="login"><br>
