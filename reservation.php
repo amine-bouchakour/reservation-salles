@@ -1,7 +1,8 @@
 <html>
+    <head>
 <title>réservations</title>
-
-
+<link rel="stylesheet" href="planning.css">
+</head>
 
 
 <?php
@@ -16,11 +17,7 @@ if(empty($_SESSION['login']) and !isset($_SESSION['login']))
 }
 
 else {
-    
-
-
-
-
+  
     $connexion= mysqli_connect("localhost","root","","reservationsalles");
     $requete= "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE reservations.id='".$_GET["id"]."'";
     $query=mysqli_query($connexion,$requete);
@@ -41,63 +38,105 @@ else {
         {
 
             $resultat[$j][1]=ucfirst($resultat[$j][1]);
-            
-            echo 'Créateur de l\'évènement : '.$resultat[$j][1].'<br/>';
-            echo 'Titre = '.$resultat[$j][4].'<br/>';
-            echo 'Description = '.$resultat[$j][5].'<br/>';
-            echo 'Début de  la réservation = '.$resultat[$j][6].'<br/>';
-            echo 'Fin de la réservation = '.$resultat[$j][7].'<br/>';
+            $créa =$resultat[$j][1];
+            $resultat[$j][4]=ucfirst($resultat[$j][4]);
+            $titre=$resultat[$j][4];
+            $descr=$resultat[$j][5];
+            $debut=$resultat[$j][6];
+            $fin=$resultat[$j][7];
             ++$x;
         }
-
-        if($_SESSION['login']==$resultat[$j][1])
-        {
-
-            echo '<br/>'.'Supprimer l\'évenement ?'.'<br/>';
-           
-            ?> 
-            
-            <form action="" method="post">
-            <button name="supp">Oui</button>
-            <button name="nosupp">Non</button>
-            </form>
-
-            <?php
-
-            if(isset($_POST['supp']))
-            {
-                echo "Button oui valide".'<br/>';
-                echo 'Evenement Supprimé'.'<br/>';
-
-                $requete2="DELETE FROM `reservations` WHERE `reservations`.`id` ='".$_GET["id"]."'";
-                $query2=mysqli_query($connexion,$requete2);
-                header("Location:planning.php");
-            }
-
-            if(isset($_POST['nosupp']))
-            {
-                header('Location:planning.php');
-            }
-
-
-        }
-
 
     ++$j;
     }
     echo '<br/>';
 
-
 }
 
+ 
 
 
 ?>
 
+<table id="tr">
+
+<tr>
+    <td id="planningtab2bis"><?php echo 'Créateur de l\'évènement : '; ?></td>
+    <td id="planningtab2bis2"><?php echo $créa; ?></td>
+
+</tr>
+<tr>
+    <td id="planningtab2bis"><?php echo 'Titre : '; ?></td>
+    <td id="planningtab2bis2"><?php echo $titre; ?></td>
+</tr>
+<tr>
+    <td id="planningtab2bis"><?php echo 'Description : '; ?></td>
+    <td id="planningtab2bis3"><?php echo $descr; ?></td>
+
+</tr>
+<tr>
+    <td id="planningtab2bis"><?php echo 'Début de  la réservation : '; ?></td>
+    <td id="planningtab2bis2"><?php echo $debut; ?></td>
+
+</tr>
+<tr>
+    <td id="planningtab2bis"><?php echo 'Fin de  la réservation : '; ?></td>
+    <td id="planningtab2bis2"><?php echo $fin; ?></td>
+</tr>
 
 
+</table>
 
+<?php
 
+if($_SESSION['login']==$créa)
+{
+
+    echo '<br/><div class="alidiv">'.'Supprimer l\'évenement ?'.'<div/><br/>';
+   
+    ?> 
+    
+    <form action="" method="post" id="alidiv">
+    <button name="supp">Oui</button>
+    <button name="nosupp">Non</button>
+    </form>
+
+    <?php
+
+    if(isset($_POST['supp']))
+    {
+        $requete2="DELETE FROM `reservations` WHERE `reservations`.`id` ='".$_GET["id"]."'";
+        $query2=mysqli_query($connexion,$requete2);
+        header("Location:planning.php");
+    }
+
+    if(isset($_POST['nosupp']))
+    {
+        header('Location:planning.php');
+    }
+
+}
+
+else
+{
+    echo '<br/><div class="alidiv">'.'Revenir au planning ?'.'<div/><br/>';
+
+   
+    ?> 
+    
+    <form action="" method="post" id="alidiv">
+    <button name="retour">Oui</button>
+    </form>
+
+    <?php
+
+    if(isset($_POST['retour']))
+    {
+        header('Location:planning.php');
+    }
+}
+
+?>
 
 
 </html>
