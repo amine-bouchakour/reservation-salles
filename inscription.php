@@ -1,6 +1,8 @@
 <html>
+    <head>
 <title>inscription</title>
-
+<link rel="stylesheet" href="planning.css">
+</head>
 
 
 <form action="" method="post">
