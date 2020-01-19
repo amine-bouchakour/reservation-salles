@@ -20,6 +20,7 @@ if(isset($_SESSION['login']))
     <a href="deconnexion.php">Se déconnecter</a> <br>
 
     <?php
+    $_SESSION['login']=ucfirst($_SESSION['login']);
     echo '<br/>'.'Bienvenue à toi '.$_SESSION['login'].'<br/>'.'<br/>';
 }
 else 
