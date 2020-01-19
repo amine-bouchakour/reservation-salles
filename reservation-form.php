@@ -1,6 +1,8 @@
 <html>
+    <head>
 <title>Réservation-formulaire</title>
-
+<link rel="stylesheet" href="planning.css">
+</head>
 
 
 <?php
