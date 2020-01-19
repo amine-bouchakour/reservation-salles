@@ -17,8 +17,10 @@ $_SESSION['password']=$resultat[1];
 
 
 <html>
+    <head>
 <title>Profil</title>
-
+<link rel="stylesheet" href="planning.css">
+</head>
 
 <form action="" method="post">
 <input type="text" name="login" value="<?php echo $_SESSION['login']; ?>"><br>
