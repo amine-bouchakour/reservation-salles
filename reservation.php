@@ -39,6 +39,8 @@ else {
 
         if($resultat[$j][3]==$_GET["id"])
         {
+
+            $resultat[$j][1]=ucfirst($resultat[$j][1]);
             
             echo 'Créateur de l\'évènement : '.$resultat[$j][1].'<br/>';
             echo 'Titre = '.$resultat[$j][4].'<br/>';
@@ -50,7 +52,34 @@ else {
 
         if($_SESSION['login']==$resultat[$j][1])
         {
-            echo '<br/>'.'Suppression evenements'.'<br/>';
+
+            echo '<br/>'.'Supprimer l\'évenement ?'.'<br/>';
+           
+            ?> 
+            
+            <form action="" method="post">
+            <button name="supp">Oui</button>
+            <button name="nosupp">Non</button>
+            </form>
+
+            <?php
+
+            if(isset($_POST['supp']))
+            {
+                echo "Button oui valide".'<br/>';
+                echo 'Evenement Supprimé'.'<br/>';
+
+                $requete2="DELETE FROM `reservations` WHERE `reservations`.`id` ='".$_GET["id"]."'";
+                $query2=mysqli_query($connexion,$requete2);
+                header("Location:planning.php");
+            }
+
+            if(isset($_POST['nosupp']))
+            {
+                header('Location:planning.php');
+            }
+
+
         }
 
 
