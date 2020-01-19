@@ -163,6 +163,31 @@ function verificationjourheure()
 
 
 
+// AFFICHAGE HEADER EN FONCTION DE CONNECTE OU PAS
+function headmenu()
+{
+    if(isset($_SESSION['login']))
+    {
+        ?>
+        <a href="index.php">Page Principale</a> <br>
+        <a href="profil.php">Mon profil</a><br>
+        <a href="planning.php">Planning</a><br>
+        <a href="reservation-form.php">Formulaire de réservations</a> <br>
+        <a href="deconnexion.php">Se déconnecter</a> <br>
+    
+        <?php
+        $_SESSION['login']=ucfirst($_SESSION['login']);
+    }
+    else 
+    {
+       ?>
+        <a href="index.php">Page Principale</a> <br>
+        <a href="connexion.php">Se connecter</a><br>
+        <a href="inscription.php">S'inscrire</a><br>
+        <?php
+    }
+
+}
 
 
 ?>
