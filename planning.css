@@ -15,6 +15,8 @@ border-radius: 2em;
 background-color: burlywood;
 }
 
+
+
 tr{
 margin: 10px 162px;
 text-align: center;
@@ -23,6 +25,16 @@ font-size:20px;
 display: flex;
 flex-wrap: wrap;
 }
+
+#tr{
+    margin: 10px 420px;
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    display: flex;
+    flex-wrap: wrap;
+    }
+    
 
 
 
@@ -61,29 +73,78 @@ width: 248px;
 padding-top:30px;
 height: 60px;
 border: 2.5px black solid;
-background-color: rgb(255, 249, 140);
+background-color: rgb(248, 243, 151);
 font-size:25px;
 text-align: center;
 font-weight: bold;
 border-radius: 0.5em;
-
 }
 
-#planningtab3{
-    padding: 10px 0px 0px 0px;
-    width: 250px;
-    height: 55px;
-    border: 2px black solid;
-    background-color: rgb(253, 209, 159);
-    border-radius: 0.5em;
+#planningtab2bis{
+width: 350px;
+padding-top:50px;
+height: 80px;
+border: 2px black solid;
+background-color: rgb(248, 243, 151);
+font-size:23px;
+text-align: center;
+font-weight: bold;
+border-radius: 0.5em;
+}
 
-    }
+#planningtab2bis2{
+width: 350px;
+padding-top:45px;
+height: 85px;
+border: 2px black solid;
+background-color: rgb(248, 243, 151);
+font-size:23px;
+text-align: center;
+border-radius: 0.5em;
+color:rgb(251, 93, 93);
+}
+
+#planningtab2bis3{
+width: 350px;
+padding-top:45px;
+height: 85px;
+border: 2px black solid;
+background-color: rgb(248, 243, 151);
+font-size:20px;
+text-align: center;
+border-radius: 0.5em;
+color:rgb(251, 93, 93);
+}
+    
+
+
+#planningtab3{
+padding: 10px 0px 0px 0px;
+width: 250px;
+height: 55px;
+border: 2px black solid;
+background-color: rgb(253, 209, 159);
+border-radius: 0.5em;
+}
 
 .aligntab{
 margin: 0px 0px 0px 0.5px;
 }
 
 a:link{
-    text-decoration: none;
-    color:black;
+text-decoration: none;
+color:rgb(58, 56, 56);
+}
+
+.alidiv
+{
+border:2px black solid;
+margin:0% 40%;
+padding-top:20px;
+text-align: center;
+background-color: rgb(255, 104, 104);
+border-radius: 6em;
+font-size: 20px;
+font-weight: bold;
+
 }
