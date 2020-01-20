@@ -10,28 +10,11 @@
 session_start();
 date_default_timezone_set('Europe/Paris');  
 
+include("fonctions.php");
 
-if(isset($_SESSION['login']))
-{
-    ?>
-    <a href="index.php">Page Principale</a> <br>
-    <a href="profil.php">Mon profil</a><br>
-    <a href="reservation-form.php">Formulaire de réservations</a> <br>
-    <a href="deconnexion.php">Se déconnecter</a> <br>
+headmenu();
 
-    <?php
-    $_SESSION['login']=ucfirst($_SESSION['login']);
-    echo '<br/>'.'Bienvenue à toi '.$_SESSION['login'].'<br/>'.'<br/>';
-}
-else 
-{
-   ?>
-    <a href="index.php">Page Principale</a> <br>
-    <a href="connexion.php">Se connecter</a><br>
-    <a href="inscription.php">S'inscrire</a><br>
-    <?php
-    echo '<br/>'.'Bienvenue à toi '.'<br/>'.'<br/>';
-}
+
 
 
 
@@ -86,7 +69,7 @@ function planning()
                                     $nnn=ucfirst($nnn);
 
                                     $id = $iii;
-                                    echo "<td id='planningtab3'>"."<a href='reservation.php?id=".$id."'>"."Titre : ".$ttt.'<br/>'."Réservation : ".$nnn."</a>"."<td/>";
+                                    echo "<td id='planningtab3'>"."<a class='col' href='reservation.php?id=".$id."'>"."Titre : ".$ttt.'<br/>'."Réservation : ".$nnn."</a>"."<td/>";
                                     break;
 
                                 }
