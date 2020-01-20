@@ -164,30 +164,131 @@ function verificationjourheure()
 
 
 // AFFICHAGE HEADER EN FONCTION DE CONNECTE OU PAS
+define('pagencours', $_SERVER['PHP_SELF'], true);
+
 function headmenu()
 {
     if(isset($_SESSION['login']))
     {
-        ?>
-        <a href="index.php">Page Principale</a> <br>
-        <a href="profil.php">Mon profil</a><br>
-        <a href="planning.php">Planning</a><br>
-        <a href="reservation-form.php">Formulaire de réservations</a> <br>
-        <a href="deconnexion.php">Se déconnecter</a> <br>
-    
-        <?php
+
+        
+
+        if(pagencours=='/poolproject/reservation-salles/index.php')
+        {
+
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="profil.php">Mon profil</a><br>
+            <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/planning.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="profil.php">Mon profil</a><br>
+            <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/profil.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/reservation.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            <a class="flexhead" href="profil.php">Mon profil</a><br>
+            <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/reservation-form.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            <a class="flexhead" href="profil.php">Mon profil</a><br>
+            <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
+            </div>
+            <?php
+        }
+
         $_SESSION['login']=ucfirst($_SESSION['login']);
     }
     else 
     {
-       ?>
-        <a href="index.php">Page Principale</a> <br>
-        <a href="connexion.php">Se connecter</a><br>
-        <a href="inscription.php">S'inscrire</a><br>
-        <?php
+        if(pagencours=='/poolproject/reservation-salles/index.php')
+        {
+ 
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="connexion.php">Se connecter</a><br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            <a class="flexhead" href="inscription.php">S'inscrire</a><br>
+            </div>
+            <?php
+        }
+
+
+        if(pagencours=='/poolproject/reservation-salles/inscription.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/connexion.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="planning.php">Planning</a><br>
+            </div>
+            <?php
+        }
+
+        if(pagencours=='/poolproject/reservation-salles/planning.php')
+        {
+            ?>
+            <div class="flex">
+            <a class="flexhead" href="connexion.php">Se connecter</a><br>
+            <a class="flexhead" href="index.php?">Page Principale</a> <br>
+            <a class="flexhead" href="inscription.php">S'inscrire</a><br>
+            </div>
+            <?php
+        }
+
     }
 
 }
+
+
+
 
 
 ?>
