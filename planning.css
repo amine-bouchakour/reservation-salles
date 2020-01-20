@@ -183,3 +183,38 @@ border:2px black solid;
 border-radius: 0.5em;
 font-size:x-large;
 }
+
+.divco{
+width: 400px;
+height: 500px;
+border:2px black solid;
+margin:100px auto 0px;
+background-color: rgb(255, 241, 219);
+border-radius: 0.5em;
+}
+
+.divin{
+margin: 80px auto 0px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+font-size: x-large;
+text-align: center;
+border-radius: 0.5em;
+}
+
+.divin2{
+    margin: 50px auto 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 0.5em;
+    }
+
+.divret{
+    text-align: center;
+    font-size: large;
+color: rgb(255, 2, 2);
+}

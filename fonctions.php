@@ -11,7 +11,7 @@ function inscription ()
         if(isset($_POST['login']) and isset($_POST['password']) and isset($_POST['confirmpassword']))
 
         {
-            if(isset($_POST['password'])==isset($_POST['confirmpassword']))
+            if($_POST['password']==$_POST['confirmpassword'])
             {
                     $requete2= "SELECT * FROM `utilisateurs` WHERE `login` = '".$_POST['login']."' ";
                     $query2= mysqli_query($connexion,$requete2);
@@ -99,7 +99,7 @@ function update ()
 
 {
     $connexion = mysqli_connect("localhost","root","","reservationsalles");
-    $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
+    $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."'";
     $query= mysqli_query($connexion,$requete);
     $resultat= mysqli_fetch_row($query);
 
@@ -118,7 +118,7 @@ function update ()
                 echo 'Update validé'.'<br/>';
                 $password=$_POST['password'];
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$hashed_password."' WHERE login='".$_SESSION['login']."' ";
+                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$hashed_password."' WHERE login='".$_SESSION['login']."'";
                 $query= mysqli_query($connexion,$requete);
                 header('Location:index.php');
             }
@@ -286,9 +286,6 @@ function headmenu()
     }
 
 }
-
-
-
 
 
 ?>

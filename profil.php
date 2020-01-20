@@ -13,7 +13,6 @@ else{
 
 include('fonctions.php');
 headmenu();
-update ();
 $connexion = mysqli_connect("localhost","root","","reservationsalles");
 $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
 $query= mysqli_query($connexion,$requete);
@@ -23,6 +22,7 @@ $_SESSION['login']=$resultat[0];
 $_SESSION['password']=$resultat[1];
 
 }
+
 ?>
 
 
@@ -32,12 +32,16 @@ $_SESSION['password']=$resultat[1];
 <link rel="stylesheet" href="planning.css">
 </head>
 
-<form action="" method="post">
-<input type="text" name="login" value="<?php echo $_SESSION['login']; ?>"><br>
-<input type="password" name="password" value="<?php echo $_SESSION['password']; ;?>"><br>
-<input type="password" name="confirmpassword" value="<?php echo $_SESSION['password']; ?>"><br>
-<input type="submit" name="valider" value="Modifier profil"><br>
-</form>
+<div class="divco">
 
+<form action="" method="post">
+<input class="divin2" type="text" name="login" value="<?php echo $_SESSION['login'];?>"><br>
+<input class="divin2" type="password" name="password" value="<?php echo $_SESSION['password'];?>"><br>
+<input class="divin2" type="password" name="confirmpassword" value="<?php echo $_SESSION['password'];?>"><br>
+<input class="divin2" type="submit" name="valider" value="Modifier profil"><br>
+<div class="divret"><?php    update ();?></div>
+
+</form>
+</div>
 
 </html>

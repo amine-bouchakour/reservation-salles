@@ -9,17 +9,18 @@
 
 include('fonctions.php');
 headmenu();
-connexion ();
 
 
 
 ?>
-
+<div class="divco">
 <form action="" method="post">
-<input type="text" name="login" placeholder="login"><br>
-<input type="password" name="password" placeholder="password"><br>
-<input type="submit" name="valider" value="Se connecter">
-</form>
+    <input class="divin" type="text" name="login" placeholder="login"><br>
+    <input class="divin" type="password" name="password" placeholder="password"><br>
+    <input class="divin" type="submit" name="valider" value="Se connecter"><br>
+    <div class="divret"><?php    connexion ();?></div>
 
+</form>
+</div>
 
 </html>
