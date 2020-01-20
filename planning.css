@@ -1,10 +1,10 @@
 body{
-background-color:rgba(255, 255, 255, 0.993);
+background:linear-gradient( rgba(255, 255, 255, 0.993),rgb(201, 234, 248));
 margin: 0px;
 }
 
 table{
-border: 3px black solid;
+border: 3px ;
 margin: 10px 145px;
 text-align: center;
 font-weight: bold;
@@ -12,7 +12,7 @@ font-size:20px;
 display: flex;
 flex-wrap: wrap;
 border-radius: 2em;
-background-color: burlywood;
+background:linear-gradient(white, rgba(235, 145, 60, 0.855)) ;
 }
 
 
@@ -27,7 +27,7 @@ flex-wrap: wrap;
 }
 
 #tr{
-    margin: 10px 420px;
+    margin: 80px 480px 10px 480px;
     text-align: center;
     font-weight: bold;
     font-size:20px;
@@ -44,7 +44,7 @@ padding: 10px 90px 0px 90px;
 width: 70px;
 height: 55px;
 border: 2px black solid;
-background-color: rgb(199, 245, 219);
+background:linear-gradient(rgb(216, 246, 229),rgb(199, 245, 219),rgb(154, 206, 176)) ;
 border-radius: 0.5em;
 
 }
@@ -54,7 +54,7 @@ border-radius: 0.5em;
     width: 70px;
     height: 50px;
     border: 2px black solid;
-    background-color: rgb(213, 225, 243);
+    background-color: rgb(232, 239, 248);
     border-radius: 0.5em;
 
     }
@@ -81,23 +81,23 @@ border-radius: 0.5em;
 }
 
 #planningtab2bis{
-width: 350px;
-padding-top:50px;
-height: 80px;
+width: 200px;
+padding-top:25px;
+height: 85px;
 border: 2px black solid;
-background-color: rgb(248, 243, 151);
-font-size:23px;
+background-color: rgba(248, 243, 151, 0.572);
+font-size:27px;
 text-align: center;
 font-weight: bold;
 border-radius: 0.5em;
 }
 
 #planningtab2bis2{
-width: 350px;
+width: 400px;
 padding-top:45px;
-height: 85px;
+height: 65px;
 border: 2px black solid;
-background-color: rgb(248, 243, 151);
+background-color: rgba(255, 249, 128, 0.834);
 font-size:23px;
 text-align: center;
 border-radius: 0.5em;
@@ -105,9 +105,9 @@ color:rgb(251, 93, 93);
 }
 
 #planningtab2bis3{
-width: 350px;
+width: 400px;
 padding-top:45px;
-height: 85px;
+height: 65px;
 border: 2px black solid;
 background-color: rgb(248, 243, 151);
 font-size:20px;
@@ -123,8 +123,12 @@ padding: 10px 0px 0px 0px;
 width: 250px;
 height: 55px;
 border: 2px black solid;
-background-color: rgb(253, 209, 159);
+background:linear-gradient(rgb(250, 161, 153),rgb(248, 116, 104),rgb(156, 80, 75)) ;
 border-radius: 0.5em;
+}
+
+.col{
+    color:white;
 }
 
 .aligntab{
@@ -139,12 +143,25 @@ color:rgb(58, 56, 56);
 .alidiv
 {
 border:2px black solid;
-margin:0% 40%;
+margin:0% 43%;
 padding-top:20px;
+text-align: center;
+background-color: rgb(255, 104, 104);
+border-radius: 3em;
+font-size: 20px;
+font-weight: bold;
+
+}
+
+.alidiv2
+{
+border:2px black solid;
+margin:0% 2%;
+padding-top:5px;
 text-align: center;
 background-color: rgb(255, 104, 104);
 border-radius: 6em;
 font-size: 20px;
 font-weight: bold;
-
+background-color: white;
 }
