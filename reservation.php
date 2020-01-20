@@ -41,6 +41,7 @@ else {
             $créa =$resultat[$j][1];
             $resultat[$j][4]=ucfirst($resultat[$j][4]);
             $titre=$resultat[$j][4];
+            $resultat[$j][5]=ucfirst($resultat[$j][5]);
             $descr=$resultat[$j][5];
             $debut=$resultat[$j][6];
             $fin=$resultat[$j][7];
@@ -92,13 +93,13 @@ else {
 if($_SESSION['login']==$créa)
 {
 
-    echo '<br/><div class="alidiv">'.'Supprimer l\'évenement ?'.'<div/><br/>';
+    echo '<br/><div class="alidiv">'.'Supprimer réservation ?'.'<div/><br/>';
    
     ?> 
     
     <form action="" method="post" id="alidiv">
-    <button name="supp">Oui</button>
-    <button name="nosupp">Non</button>
+    <button name="supp" class="alidiv2">Oui</button>
+    <button name="nosupp" class="alidiv2">Non</button>
     </form>
 
     <?php
@@ -125,7 +126,7 @@ else
     ?> 
     
     <form action="" method="post" id="alidiv">
-    <button name="retour">Oui</button>
+    <button name="retour" class="alidiv2">Oui</button>
     </form>
 
     <?php
