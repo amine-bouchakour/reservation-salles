@@ -7,6 +7,7 @@
 
 <?php
 session_start();
+include('fonctions.php');
 
 $_GET["id"];
 
@@ -17,6 +18,8 @@ if(empty($_SESSION['login']) and !isset($_SESSION['login']))
 }
 
 else {
+    headmenu();
+
   
     $connexion= mysqli_connect("localhost","root","","reservationsalles");
     $requete= "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE reservations.id='".$_GET["id"]."'";
