@@ -7,6 +7,7 @@
 
 <?php
 session_start();
+include('fonctions.php');
 
 if(empty($_SESSION['login']) and !isset($_SESSION['login']))
 {
@@ -14,6 +15,7 @@ if(empty($_SESSION['login']) and !isset($_SESSION['login']))
 }
 
 else {
+    headmenu();
 
 ?>
 
