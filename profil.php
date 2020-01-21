@@ -33,13 +33,16 @@ $_SESSION['password']=$resultat[1];
 <link rel="stylesheet" href="planning.css">
 </head>
 
-<div class="divco">
+<div class="divco3">
 
 <form action="" method="post">
-<input class="divin2" type="text" name="login" value="<?php echo $_SESSION['login'];?>"><br>
-<input class="divin2" type="password" name="password" value="<?php echo $_SESSION['password'];?>"><br>
-<input class="divin2" type="password" name="confirmpassword" value="<?php echo $_SESSION['password'];?>"><br>
-<input class="divin2" type="submit" name="valider" value="Modifier profil"><br>
+<label for="">Login </label>
+<input class="divin4" type="text" name="login" value="<?php echo $_SESSION['login'];?>"><br>
+<label for="">Password </label>
+<input class="divin4" type="password" name="password" value="<?php echo $_SESSION['password'];?>"><br>
+<label for="">Confirmation Password </label>
+<input class="divin4" type="password" name="confirmpassword" value="<?php echo $_SESSION['password'];?>"><br>
+<input class="divin4" type="submit" name="valider" value="Modifier profil"><br>
 <div class="divret"><?php    update ();?></div>
 
 </form>
