@@ -4,6 +4,9 @@
 <link rel="stylesheet" href="planning.css">
 </head>
 
+<body>
+    
+
 
 <?php
 session_start();
@@ -32,7 +35,7 @@ else {
 </div>
 
 
-</html>
+
 
 <?php 
 
@@ -196,3 +199,13 @@ reservationsform();
 
 
 ?>
+
+<footer>
+    <div class="copy">
+    © 2019-2029 Bouchakour Amine All right reserved.
+    </div>
+</footer>
+
+</body>
+
+</html>
