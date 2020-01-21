@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="planning.css">
 </head>
 
+<body>
+    
 
 
 
@@ -33,13 +35,13 @@ headmenu();
 </div>
 
 
-<?php
+<footer>
+    <div class="copy">
+    © 2019-2029 Bouchakour Amine All right reserved.
+    </div>
+</footer>
 
-
-
-?>
-
-
+</body>
 
 
 
