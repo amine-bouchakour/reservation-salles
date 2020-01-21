@@ -135,7 +135,11 @@ function planning()
 
 </table>
 
-
+<div>
+    <div class="copy">
+    © 2019-2029 Bouchakour Amine All right reserved.
+    </div>
+</div>
 
 </body>
 
