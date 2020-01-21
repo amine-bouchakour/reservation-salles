@@ -1,3 +1,13 @@
+<html>
+    <head>
+<title>Profil</title>
+<link rel="stylesheet" href="planning.css">
+</head>
+
+<body>
+    
+
+
 <?php
 session_start();
 
@@ -28,11 +38,7 @@ $_SESSION['password']=$resultat[2];
 ?>
 
 
-<html>
-    <head>
-<title>Profil</title>
-<link rel="stylesheet" href="planning.css">
-</head>
+
 
 <div class="divco3">
 
@@ -66,5 +72,14 @@ if(isset($_POST['suppcompte']))
 }
 ?>
 </div>
+
+<footer>
+    <div class="copy">
+    © 2019-2029 Bouchakour Amine All right reserved.
+    </div>
+</footer>
+
+</body>
+
 
 </html>
