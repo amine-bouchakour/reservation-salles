@@ -69,8 +69,11 @@ function planning()
                                     $nnn=ucfirst($nnn);
 
                                     $id = $iii;
-                                    echo "<td id='planningtab3'>"."<a class='col' href='reservation.php?id=".$id."'>"."Titre : ".$ttt.'<br/>'."Réservation : ".$nnn."</a>"."<td/>";
-                                    break;
+                                    if($nnn!=NULL)
+                                    {
+                                        echo "<td id='planningtab3'>"."<a class='col' href='reservation.php?id=".$id."'>"."Titre : ".$ttt.'<br/>'."Réservation : ".$nnn."</a>"."<td/>";
+                                        break;
+                                    }
 
                                 }
                                         
