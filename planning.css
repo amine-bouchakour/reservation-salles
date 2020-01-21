@@ -191,7 +191,39 @@ border:2px black solid;
 margin:100px auto 0px;
 background-color: rgb(255, 241, 219);
 border-radius: 0.5em;
+text-align: center;
+padding:50px 0px 0px 0px;
+
 }
+
+.divco2{
+    width: 400px;
+    height: 500px;
+    border:2px black solid;
+    margin:100px auto 0px;
+    padding:10px 0px 30px 0px;
+    background-color: rgb(255, 241, 219);
+    border-radius: 0.5em;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    color:grey;
+    }
+    .divco3{
+        width: 400px;
+        height: 500px;
+        border:2px black solid;
+        margin:100px auto 0px;
+        padding:70px 0px 0px 0px;
+        background-color: rgb(255, 241, 219);
+        border-radius: 0.5em;
+        text-align: center;
+        font-weight: bold;
+        font-size: xx-large;
+        color:grey;
+
+        }
+
 
 .divin{
 margin: 80px auto 0px;
@@ -203,8 +235,8 @@ text-align: center;
 border-radius: 0.5em;
 }
 
-.divin2{
-    margin: 50px auto 0px;
+.divinbis{
+    margin: 60px auto 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -212,6 +244,33 @@ border-radius: 0.5em;
     text-align: center;
     border-radius: 0.5em;
     }
+
+.divin2{
+    margin: 0px auto 0px;
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 0.5em;
+    }
+
+
+.divin3{
+margin: 15px auto 0px;
+display: flex;
+font-size: large;
+text-align: center;
+border-radius: 0.5em;
+}
+
+.divin4{
+margin: 20px auto 0px;
+display: flex;
+flex-direction: column;
+font-size: large;
+text-align: center;
+border-radius: 0.5em;
+}
 
 .divret{
     text-align: center;
