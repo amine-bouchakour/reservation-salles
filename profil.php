@@ -14,12 +14,13 @@ else{
 include('fonctions.php');
 headmenu();
 $connexion = mysqli_connect("localhost","root","","reservationsalles");
-$requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
+$requete = "SELECT id,login,password FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
 $query= mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_row($query);
 
-$_SESSION['login']=$resultat[0];
-$_SESSION['password']=$resultat[1];
+$_SESSION['id']=$resultat[0];
+$_SESSION['login']=$resultat[1];
+$_SESSION['password']=$resultat[2];
 
 
 }
@@ -42,10 +43,28 @@ $_SESSION['password']=$resultat[1];
 <input class="divin4" type="password" name="password" value="<?php echo $_SESSION['password'];?>"><br>
 <label for="">Confirmation Password </label>
 <input class="divin4" type="password" name="confirmpassword" value="<?php echo $_SESSION['password'];?>"><br>
-<input class="divin4" type="submit" name="valider" value="Modifier profil"><br>
-<div class="divret"><?php    update ();?></div>
+<input class="divin4" type="submit" name="valider" value="Modifier profil">
+<input class="divin4" type="submit" name="suppcompte" value="Supprimer compte"><br>
 
+<div class="divret"><?php update ();?></div>
 </form>
+
+
+<?php 
+
+if(isset($_POST['suppcompte']))
+{
+    $connexion = mysqli_connect("Localhost","root","","reservationsalles");
+    $requete = "DELETE FROM utilisateurs WHERE utilisateurs.id='".$_SESSION['id']."'";
+    $requete2= "DELETE FROM reservations WHERE reservations.id_utilisateur='".$_SESSION['id']."'";
+    $query2=mysqli_query($connexion,$requete2);
+    $query = mysqli_query($connexion,$requete);
+    session_start();
+    session_destroy();
+    header('Location:index.php');
+
+}
+?>
 </div>
 
 </html>
