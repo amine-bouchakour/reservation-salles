@@ -22,10 +22,10 @@ headmenu();
 <div class="divco">
 
 <form action="" method="post">
-<input class="divin2" type="text" name="login" placeholder="login"><br>
-<input class="divin2" type="password" name="password" placeholder="password"><br>
-<input class="divin2" type="password" name="confirmpassword" placeholder="confirmpassword"><br>
-<input class="divin2" type="submit" name="valider" value="S'inscrire"><br>
+<input class="divinbis" type="text" name="login" placeholder="login"><br>
+<input class="divinbis" type="password" name="password" placeholder="password"><br>
+<input class="divinbis" type="password" name="confirmpassword" placeholder="confirmpassword"><br>
+<input class="divinbis" type="submit" name="valider" value="S'inscrire"><br>
 <div class="divret"><?php    inscription ();?></div>
 
 </form>
