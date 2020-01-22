@@ -227,7 +227,7 @@ function headmenu()
             ?>
             <div class="flex">
             <a class="flexhead" href="planning.php">Planning</a><br>
-            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservation</a> <br>
             <a class="flexhead" href="profil.php">Mon profil</a><br>
             <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
             </div>
@@ -239,7 +239,7 @@ function headmenu()
             ?>
             <div class="flex">
             <a class="flexhead" href="index.php?">Page Principale</a> <br>
-            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservation</a> <br>
             <a class="flexhead" href="profil.php">Mon profil</a><br>
             <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
             </div>
@@ -252,7 +252,7 @@ function headmenu()
             <div class="flex">
             <a class="flexhead" href="index.php?">Page Principale</a> <br>
             <a class="flexhead" href="planning.php">Planning</a><br>
-            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservation</a> <br>
             <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
             </div>
             <?php
@@ -263,7 +263,7 @@ function headmenu()
             ?>
             <div class="flex">
             <a class="flexhead" href="index.php?">Page Principale</a> <br>
-            <a class="flexhead" href="reservation-form.php">Formulaire de réservations</a> <br>
+            <a class="flexhead" href="reservation-form.php">Formulaire de réservation</a> <br>
             <a class="flexhead" href="planning.php">Planning</a><br>
             <a class="flexhead" href="profil.php">Mon profil</a><br>
             <a class="flexhead" href="deconnexion.php">Se déconnecter</a> <br>
