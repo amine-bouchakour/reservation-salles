@@ -94,11 +94,11 @@ border-radius: 0.5em;
 
 #planningtab2bis2{
 width: 400px;
-padding-top:45px;
-height: 65px;
+padding-top:40px;
+height: 70px;
 border: 2px black solid;
 background-color: rgba(255, 249, 128, 0.834);
-font-size:23px;
+font-size:28px;
 text-align: center;
 border-radius: 0.5em;
 color:rgb(251, 93, 93);
@@ -143,14 +143,25 @@ color:rgb(58, 56, 56);
 .alidiv
 {
 border:2px black solid;
-margin:0% 43%;
+margin:0% 43% 20px;
 padding-top:20px;
 text-align: center;
 background-color: rgb(255, 104, 104);
 border-radius: 3em;
 font-size: 20px;
 font-weight: bold;
+}
 
+.alidiv3
+{
+border:2px black solid;
+margin:0px 43% 100px;
+padding-top:0px;
+text-align: center;
+background-color: rgb(255, 104, 104);
+border-radius: 3em;
+font-size: 20px;
+font-weight: bold;
 }
 
 .alidiv2
@@ -301,4 +312,21 @@ padding: 20px 0px 20px;
 color:white;
 background-color: rgb(251, 164, 82);
 font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.copy3{
+    margin-top: 200px;
+    text-align: center;
+    font-size:30px;
+    padding: 20px 0px 20px;
+    color:white;
+    background-color: rgb(251, 164, 82);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    
+
+.login{
+font-family: fantasy;
+font-size:40px;
+color:rgb(250, 99, 99);
 }
