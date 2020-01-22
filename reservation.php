@@ -78,7 +78,7 @@ else {
 </tr>
 <tr>
     <td id="planningtab2bis"><?php echo 'Description : '; ?></td>
-    <td id="planningtab2bis3"><?php echo $descr; ?></td>
+    <td id="planningtab2bis2"><?php echo $descr; ?></td>
 
 </tr>
 <tr>
@@ -146,7 +146,7 @@ else
 ?>
 
 <footer>
-    <div class="copy">
+    <div >
     © 2019-2029 Bouchakour Amine All right reserved.
     </div>
 </footer>
