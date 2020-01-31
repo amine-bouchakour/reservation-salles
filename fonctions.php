@@ -212,7 +212,6 @@ function verificationjourheure()
 
 
 // AFFICHAGE HEADER EN FONCTION DE CONNECTE OU PAS
-define('pagencours', $_SERVER['PHP_SELF'], true);
 
 function headmenu()
 {
