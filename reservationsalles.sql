@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 23 jan. 2020 à 16:27
+-- Généré le :  ven. 31 jan. 2020 à 00:04
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -25,32 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations`
---
-
-DROP TABLE IF EXISTS `reservations`;
-CREATE TABLE IF NOT EXISTS `reservations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `debut` datetime NOT NULL,
-  `fin` datetime NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=170 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `reservations`
---
-
-INSERT INTO `reservations` (`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES
-(162, 'musique', 'rÃ©pÃ©tition', '2020-01-22 13:00:00', '2020-01-22 14:00:00', 33),
-(163, 'Dessin', 'Recherche de croquis pour illustration', '2020-01-24 10:00:00', '2020-01-24 11:00:00', 31),
-(164, 'thÃ©Ã¢tre', 'rÃ©pÃ©tition mise en scÃ¨ne', '2020-01-27 11:00:00', '2020-01-27 12:00:00', 34);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `utilisateurs`
 --
 
@@ -60,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
