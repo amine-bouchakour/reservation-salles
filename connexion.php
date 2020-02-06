@@ -13,7 +13,7 @@ session_start();
 if(isset($_SESSION['login']))
 {
     session_start();
-    session_destroy();
+    session_destroy(); 
 }
 
 else{
