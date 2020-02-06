@@ -10,11 +10,20 @@
 
 
 <?php
+session_start();
 
+if(isset($_SESSION['login']))
+{
+    session_start();
+    session_destroy();
+    header('Location:index.php');
+
+}
+
+else{
 include("fonctions.php");
 
 headmenu();
-
 
 
 
@@ -34,6 +43,8 @@ headmenu();
 
 </div>
 
+<?php }
+?>
 
 <footer>
     <div class="copy">

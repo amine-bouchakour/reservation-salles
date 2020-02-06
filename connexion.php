@@ -8,10 +8,17 @@
     
 
 <?php
+session_start();
 
+if(isset($_SESSION['login']))
+{
+    session_start();
+    session_destroy();
+}
+
+else{
 include('fonctions.php');
 headmenu();
-
 
 
 ?>
@@ -20,11 +27,13 @@ headmenu();
     <input class="divin" type="text" name="login" placeholder="login"><br>
     <input class="divin" type="password" name="password" placeholder="password"><br>
     <input class="divin" type="submit" name="valider" value="Se connecter"><br>
-    <div class="divret"><?php    connexion ();?></div>
+    <div class="divret"><?php connexion ();?></div>
 
 </form>
 </div>
 
+<?php }
+?>
 
 <footer>
     <div class="copy">

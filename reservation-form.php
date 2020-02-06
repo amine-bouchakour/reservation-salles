@@ -57,8 +57,8 @@ function reservationsform ()
         
         {
         $date = date("d/m/Y : H:i:s");
-        $datexdeb = date("d/m/Y : 08:00:00");
-        $datexfin = date("d/m/Y : 19:00:00");
+        // $datexdeb = date("d/m/Y : 08:00:00");
+        // $datexfin = date("d/m/Y : 19:00:00");
 
         // VERIFICATION SI JOUR DE SEMAINE POUR RESERVE LUNDI A VENDREDI    date('l')=='Saturday' or 
         if (date('l')=='Sunday')
@@ -69,8 +69,8 @@ function reservationsform ()
         else
             {
                 // VERIFICATION SI HEURE DE RESERVATION VALIDE DE 8H A 19H
-                if($date>=$datexdeb and $date<=$datexfin)
-                {
+                // if($date>=$datexdeb and $date<=$datexfin)
+                // {
                     $date = date("Y/m/d H:i");
                     $h1 = strtotime($_POST['debut']);
                     $h2 = strtotime($_POST['fin']);
@@ -184,12 +184,12 @@ function reservationsform ()
                     }
                 }
 
-                else
-                {
-                    echo 'Les réservations ne se font que du lundi au vendredi de 8h à 19h.'.'<br/>'.'<br/>';
+                // else
+                // {
+                //     echo 'Les réservations ne se font que du lundi au vendredi de 8h à 19h.'.'<br/>'.'<br/>';
     
-                }
-            }
+                // }
+            // }
         }
     }
 

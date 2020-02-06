@@ -9,6 +9,10 @@
 
 
 <?php
+
+{
+
+
 session_start();
 
 if(empty($_SESSION['login']) and !isset($_SESSION['login']))
@@ -57,6 +61,7 @@ $_SESSION['password']=$resultat[2];
 
 
 <?php 
+}
 
 if(isset($_POST['suppcompte']))
 {
@@ -68,8 +73,9 @@ if(isset($_POST['suppcompte']))
     session_start();
     session_destroy();
     header('Location:index.php');
-
 }
+
+
 ?>
 </div>
 
