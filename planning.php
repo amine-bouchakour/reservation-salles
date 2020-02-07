@@ -22,7 +22,7 @@ function planning()
 
 {
 
-            $tabdate=array('Mon','Tue','Wed','Thu','Fri');
+            $tabdate=array('V','Mon','Tue','Wed','Thu','Fri');
             $tabheure=array('08','09',10,11,12,13,14,15,16,17,18);
             $h=0;
             $j=0;
@@ -55,11 +55,12 @@ function planning()
                                 $iii=$resultat[$k][0]; //Id evenement
                                 $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
                                 $bbb=date('DH', $timestamp);
-                                
+                                if ($aaa=='V08' && $k<1 or $aaa=='V09' && $k<1 or $aaa=='V10' && $k<1 or $aaa=='V11' && $k<1 or $aaa=='V12' && $k<1 or $aaa=='V13' && $k<1 or $aaa=='V14' && $k<1 or $aaa=='V15' && $k<1 or $aaa=='V16' && $k<1 or $aaa=='V17' && $k<1 or $aaa=='V18' && $k<1) {
+                                    echo "<td id=\"planningtab\">$tabheure[$j]"."h"."</td>";
+                                }
                                 ++$k;
 
-                                
-
+                               
                                 if($aaa==$bbb)
                                 {
                                     $requete1="SELECT login FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE reservations.id='".$iii."' ";
@@ -120,6 +121,7 @@ function planning()
 
 <table>
     <thead class="aligntab">
+        <td id="planningtab2"></td>
         <td id="planningtab2">LUNDI</td>
         <td id="planningtab2">MARDI</td>
         <td id="planningtab2">MERCREDI</td>
