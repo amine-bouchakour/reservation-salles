@@ -1,18 +1,22 @@
 <html>
-    <head>
-<title>inscription</title>
-<link rel="stylesheet" href="planning.css">
+
+<head>
+    <title>inscription</title>
+    <link rel="stylesheet" href="planning.css">
 </head>
 
 <body>
-    
 
 
 
-<?php
+
+    <?php
 session_start();
 
-if(isset($_SESSION['login']))
+?>
+
+    <div id="page">
+        <div id="header"><?php if(isset($_SESSION['login']))
 {
     session_start();
     session_destroy();
@@ -28,29 +32,36 @@ headmenu();
 
 
 
-?>
+ ?></div>
+        <div id="content">
+            <div class="divco">
 
-<div class="divco">
+                <form action="" method="post">
+                    <input class="divinbis" type="text" name="login" placeholder="login"><br>
+                    <input class="divinbis" type="password" name="password" placeholder="password"><br>
+                    <input class="divinbis" type="password" name="confirmpassword" placeholder="confirmpassword"><br>
+                    <input class="divinbis" type="submit" name="valider" value="S'inscrire"><br>
+                    <div class="divret"><?php    inscription ();?></div>
 
-<form action="" method="post">
-<input class="divinbis" type="text" name="login" placeholder="login"><br>
-<input class="divinbis" type="password" name="password" placeholder="password"><br>
-<input class="divinbis" type="password" name="confirmpassword" placeholder="confirmpassword"><br>
-<input class="divinbis" type="submit" name="valider" value="S'inscrire"><br>
-<div class="divret"><?php    inscription ();?></div>
+                </form>
 
-</form>
-
-</div>
-
-<?php }
-?>
-
-<footer>
-    <div class="copy">
-    © 2019-2029 Bouchakour Amine All right reserved.
+            </div>
+        </div>
+        <div id="footer">
+            <div>
+                <div class="copy">
+                    © 2019-2029 Bouchakour Amine All right reserved.
+                </div>
+            </div>
+        </div>
     </div>
-</footer>
+
+
+
+    <?php }
+?>
+
+
 
 </body>
 
