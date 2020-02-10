@@ -1,6 +1,6 @@
 <html>
 
-<head>  
+<head>
     <link rel="stylesheet" href="planning.css">
     <title>Planning</title>
 
@@ -12,7 +12,7 @@ date_default_timezone_set('Europe/Paris');
 
 include("fonctions.php");
 
-headmenu();
+
 
 
 
@@ -111,47 +111,41 @@ function planning()
 
 }
 
-
-
-
-
-
-
-
-
 ?>
-
-
-
 <body>
 
-<table>
-    <thead class="aligntab">
-    <td id="planningtab2"></td>
-        <td id="planningtab2bis">LUNDI</td>
-        <td id="planningtab2bis">MARDI</td>
-        <td id="planningtab2bis">MERCREDI</td>
-        <td id="planningtab2bis">JEUDI</td>
-        <td id="planningtab2bis">VENDREDI</td>
+<div id="page">
+    <div id="header"><?php headmenu();?>;</div>
+    <div id="content">
+        <table>
+            <thead class="aligntab">
+                <td id="planningtab2"></td>
+                <td id="planningtab2bis">LUNDI</td>
+                <td id="planningtab2bis">MARDI</td>
+                <td id="planningtab2bis">MERCREDI</td>
+                <td id="planningtab2bis">JEUDI</td>
+                <td id="planningtab2bis">VENDREDI</td>
 
-    </thead>
-    
-    <tbody>
-        <?php planning(); 
+            </thead>
+
+            <tbody>
+                <?php planning(); 
         ?>
-    </tbody>
+            </tbody>
 
-</table>
-
-<div>
-    <div class="copy">
-    © 2019-2029 Bouchakour Amine All right reserved.
+        </table>
+    </div>
+    <div id="footer">
+        <div>
+            <div class="copy">
+                © 2019-2029 Bouchakour Amine All right reserved.
+            </div>
+        </div>
     </div>
 </div>
 
+
+
 </body>
-
-
-
 
 </html>
