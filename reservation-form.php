@@ -12,27 +12,46 @@
 session_start();
 include('fonctions.php');
 
-if(empty($_SESSION['login']) and !isset($_SESSION['login']))
-{
-    header('Location:connexion.php');
-}
 
-else {
-    headmenu();
 
 ?>
 
-<div class="divco2">
+<div id="page">
+	<div id="header">
+        <?php if(empty($_SESSION['login']) and !isset($_SESSION['login']))
+        {
+            header('Location:connexion.php');
+        }
 
-<form action="" method="post">
-    <label for="">Titre </label><input class="divin3" type="text" name="titre" maxlength="20"><br>
-    <label for="">Description </label>
-    <textarea class="divin3" type="text" name="description"  cols="25" rows="5" maxlength="80"></textarea><br>
-    <label for="">Jour et Heure de début </label><input class="divin3" type="datetime-local"  name="debut"><br>
-    <label for="">Jour et Heure de fin </label><input class="divin3"  type="datetime-local" name="fin"><br>
-    <input class="divin3" type="submit" name="valider" value="Réserver"><br>
-</form>
+        else {
+            headmenu(); 
+        ?>
+    </div>
+	<div id="content">
+        <div class="divco2">
+
+        <form action="" method="post">
+            <label for="">Titre </label><input class="divin3" type="text" name="titre" maxlength="20"><br>
+            <label for="">Description </label>
+            <textarea class="divin3" type="text" name="description"  cols="25" rows="5" maxlength="80"></textarea><br>
+            <label for="">Jour et Heure de début </label><input class="divin3" type="datetime-local"  name="debut"><br>
+            <label for="">Jour et Heure de fin </label><input class="divin3"  type="datetime-local" name="fin"><br>
+            <input class="divin3" type="submit" name="valider" value="Réserver"><br>
+        </form>
+        </div>
+        <?php reservationsform() ;?>
+    </div>
+
+	<div id="footer">
+        <div>
+            <div class="copy">
+                © 2019-2029 Bouchakour Amine All right reserved.
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 
 
@@ -41,6 +60,8 @@ else {
 
 
 
+
+if(isset($_SESSION['a'])=="a"){
 
 
 
@@ -195,16 +216,14 @@ function reservationsform ()
 
 }
 
-reservationsform();
-
+}
 
 ?>
 
-<footer>
-    <div class="copy">
-    © 2019-2029 Bouchakour Amine All right reserved.
-    </div>
-</footer>
+
+
+
+
 
 </body>
 
