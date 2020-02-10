@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 31 jan. 2020 à 00:33
+-- Généré le :  lun. 10 fév. 2020 à 08:59
 -- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Version de PHP :  7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `reservationsalles`
 --
+CREATE DATABASE IF NOT EXISTS `reservationsalles` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `reservationsalles`;
 
 -- --------------------------------------------------------
 
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `fin` datetime NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=170 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=172 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `reservations`
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -68,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`id`, `login`, `password`) VALUES
 (33, 'jacques', '$2y$10$LhuHi2XeU68D6JlQ1awJ0uvUm2ES8Xx2T6hJf0nMJ9TsZiG57IE3a'),
+(44, 'a', '$2y$10$StyNJNG5l/lHn4mKA/PKruwK3yWFh.ictr1OhXzy4fTjs9mBgJxqW'),
 (31, 'paul', '$2y$10$XYn4UruqCqWQ0IFmyURl/eRNuL8pyl9uAW6mIvyNcAULm2vsH9vFG'),
 (34, 'aurÃ©lie', '$2y$10$Qh8HW881SFBdJ6PKD/XNl.x6nEzulvFm3BqFqzJjvxh5/3vPCg4Se');
 COMMIT;
