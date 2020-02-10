@@ -1,18 +1,27 @@
 <html>
-    <head>
-<title>réservations</title>
-<link rel="stylesheet" href="planning.css">
+
+<head>
+    <title>réservations</title>
+    <link rel="stylesheet" href="planning.css">
 </head>
 
 <body>
-    
 
 
-<?php
+
+    <?php
 session_start();
 include('fonctions.php');
 
-$_GET["id"];
+
+
+ 
+
+
+?>
+
+    <div id="page">
+        <div id="header"><?php $_GET["id"];
 
 
 if(empty($_SESSION['login']) and !isset($_SESSION['login']))
@@ -58,57 +67,52 @@ else {
     }
     echo '<br/>';
 
-}
+} ?></div>
+        <div id="content">
+            <table id="tr">
 
- 
+                <tr>
+                    <td id="planningtab2bis"><?php echo 'Créateur'; ?></td>
+                    <td id="planningtab2bis2"><?php echo $créa; ?></td>
 
+                </tr>
+                <tr>
+                    <td id="planningtab2bis"><?php echo 'Titre'; ?></td>
+                    <td id="planningtab2bis2"><?php echo $titre; ?></td>
+                </tr>
+                <tr>
+                    <td id="planningtab2bis"><?php echo 'Description'; ?></td>
+                    <td id="planningtab2bis2"><?php echo $descr; ?></td>
 
-?>
+                </tr>
+                <tr>
+                    <td id="planningtab2bis"><?php echo 'Début'; ?></td>
+                    <td id="planningtab2bis2"><?php echo $debut; ?></td>
 
-<table id="tr">
-
-<tr>
-    <td id="planningtab2bis"><?php echo 'Créateur de l\'évènement : '; ?></td>
-    <td id="planningtab2bis2"><?php echo $créa; ?></td>
-
-</tr>
-<tr>
-    <td id="planningtab2bis"><?php echo 'Titre : '; ?></td>
-    <td id="planningtab2bis2"><?php echo $titre; ?></td>
-</tr>
-<tr>
-    <td id="planningtab2bis"><?php echo 'Description : '; ?></td>
-    <td id="planningtab2bis2"><?php echo $descr; ?></td>
-
-</tr>
-<tr>
-    <td id="planningtab2bis"><?php echo 'Début de  la réservation : '; ?></td>
-    <td id="planningtab2bis2"><?php echo $debut; ?></td>
-
-</tr>
-<tr>
-    <td id="planningtab2bis"><?php echo 'Fin de  la réservation : '; ?></td>
-    <td id="planningtab2bis2"><?php echo $fin; ?></td>
-</tr>
+                </tr>
+                <tr>
+                    <td id="planningtab2bis"><?php echo 'Fin'; ?></td>
+                    <td id="planningtab2bis2"><?php echo $fin; ?></td>
+                </tr>
 
 
-</table>
+            </table>
 
-<?php
+            <?php
 
 if($_SESSION['login']==$créa)
 {
 
     echo '<br/><div class="alidiv">'.'Supprimer réservation ?'.'<div/><br/>';
    
-    ?> 
-    
-    <form action="" method="post" id="alidiv">
-    <button name="supp" class="alidiv2">Oui</button>
-    <button name="nosupp" class="alidiv2">Non</button>
-    </form>
+    ?>
 
-    <?php
+            <form action="" method="post" id="alidiv">
+                <button name="supp" class="alidiv2">Oui</button>
+                <button name="nosupp" class="alidiv2">Non</button>
+            </form>
+
+            <?php
 
     if(isset($_POST['supp']))
     {
@@ -129,13 +133,13 @@ else
     echo '<br/><div class="alidiv">'.'Revenir au planning ?'.'<div/><br/>';
 
    
-    ?> 
-    
-    <form action="" method="post" id="alidiv">
-    <button name="retour" class="alidiv2">Oui</button>
-    </form>
+    ?>
 
-    <?php
+            <form action="" method="post" id="alidiv">
+                <button name="retour" class="alidiv2">Oui</button>
+            </form>
+
+            <?php
 
     if(isset($_POST['retour']))
     {
@@ -144,12 +148,19 @@ else
 }
 
 ?>
-
-<footer>
-    <div >
-    © 2019-2029 Bouchakour Amine All right reserved.
+        </div>
     </div>
-</footer>
+            <div id="footer">
+                <div>
+                    <div class="copy">
+                        © 2019-2029 Bouchakour Amine All right reserved.
+                    </div>
+                </div>
+            </div>
+
+
+
+
 
 </body>
 
