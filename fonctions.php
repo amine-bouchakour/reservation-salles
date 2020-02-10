@@ -63,9 +63,11 @@ function connexion ()
         if(isset($_POST['login']) and isset($_POST['password']))
 
         {
-            $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_POST['login']."' ";
+            $requete = "SELECT id,login,password FROM utilisateurs WHERE login='".$_POST['login']."' ";
             $query = mysqli_query($connexion,$requete);
             $resultat = mysqli_fetch_row($query);
+
+            $_SESSION['id']=$resultat[0];
 
             $password=$_POST['password'];
 
@@ -77,7 +79,7 @@ function connexion ()
                 echo "Le login est inconnu".'<br/>';
             }
             
-            elseif ($resultat[0]==$_POST['login'] and password_verify($password, $resultat[1]))
+            elseif ($resultat[1]==$_POST['login'] and password_verify($password, $resultat[2]))
              {
                 session_start();
                 $_SESSION['login']=$_POST['login'];
@@ -100,7 +102,7 @@ function update ()
 
 {
     $connexion = mysqli_connect("localhost","root","","reservationsalles");
-    $requete = "SELECT login,password FROM utilisateurs WHERE login='".$_SESSION['login']."'";
+    $requete = "SELECT login,password FROM utilisateurs WHERE id='".$_SESSION['id']."'";
     $query= mysqli_query($connexion,$requete);
     $resultat= mysqli_fetch_row($query);
 
@@ -114,69 +116,69 @@ function update ()
         if($_POST['password']==$_POST['confirmpassword'] and !empty($_POST['password']))
 
         {
-            $requete2= "SELECT * FROM `utilisateurs` WHERE `login` = '".$_POST['login']."' ";
-                    $query2= mysqli_query($connexion,$requete2);
-                    $resultat2= mysqli_fetch_row($query2);
+                    // $requete2= "SELECT * FROM `utilisateurs` WHERE `login` = '".$_POST['login']."' ";
+                    // $query2= mysqli_query($connexion,$requete2);
+                    // $resultat2= mysqli_fetch_row($query2);
 
-                    if($resultat2==0)
-                    {
-                        if(!empty($_POST['login']) and !empty($_POST['password']))
+                    // if($resultat2==0)
+                    // {
+                        // if(!empty($_POST['login']) and !empty($_POST['password']))
 
-                        {
-                            $password=$_POST['password'];
-                            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                            $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$hashed_password."')";
-                            $query= mysqli_query($connexion, $requete);
-                            echo 'Inscription réussie'.'<br/>';
-                            header("Location:connexion.php");
-                        }
+                        // {
+                        //     $password=$_POST['password'];
+                        //     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                        //     $requete = "INSERT INTO utilisateurs (login,password) VALUES ('".$_POST['login']."','".$hashed_password."')";
+                        //     $query= mysqli_query($connexion, $requete);
+                        //     echo 'Inscription réussie'.'<br/>';
+                        //     header("Location:connexion.php");
+                        // }
                     
 
-            if ($_POST['password']!=$resultat[1] and $_POST['login']!=$resultat[0])
-            {
-                $password=$_POST['password'];
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$hashed_password."' WHERE login='".$_SESSION['login']."'";
-                $query= mysqli_query($connexion,$requete);
-                header('Location:index.php');
+                            if ($_POST['password']!=$resultat[1] and $_POST['login']!=$resultat[0])
+                            {
+                                $password=$_POST['password'];
+                                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."', password='".$hashed_password."' WHERE id='".$_SESSION['id']."'";
+                                $query= mysqli_query($connexion,$requete);
+                                header('Location:index.php');
 
-            }
+                            }
 
-            if($_POST['login']!=$resultat[0] and $_POST['password']==$resultat[1] )
-            {
-                echo 'Update validé'.'<br/>';
-                
-                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."' WHERE login='".$_SESSION['login']."'";
-                $query= mysqli_query($connexion,$requete);
-                header('Location:index.php');
+                            if($_POST['login']!=$resultat[0] and $_POST['password']==$resultat[1] )
+                            {
+                                
+                                $requete = "UPDATE utilisateurs SET login='".$_POST['login']."' WHERE id='".$_SESSION['id']."'";
+                                $query= mysqli_query($connexion,$requete);
+                                header('Location:index.php');
+                                $_SESSION['login']=$_POST['login'];
 
-                
-            }
+                                
+                            }
 
-            if ($_POST['password']!=$resultat[1] and $_POST['login']=$resultat[0])
-                {
-                    $password=$_POST['password'];
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    $requete = "UPDATE utilisateurs SET  password='".$hashed_password."' WHERE login='".$_SESSION['login']."'";
-                    $query= mysqli_query($connexion,$requete);
-                    header('Location:index.php');
+                            if ($_POST['password']!=$resultat[1] and $_POST['login']=$resultat[0])
+                                {
+                                    $password=$_POST['password'];
+                                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                                    $requete = "UPDATE utilisateurs SET  password='".$hashed_password."' WHERE id='".$_SESSION['id']."'";
+                                    $query= mysqli_query($connexion,$requete);
+                                    header('Location:index.php');
 
-                }
+                                }
 
               
-            }
+                    // }
 
-            else 
-            {
-                echo 'Login déjà existant'.'<br/>';
-            }
+                    else 
+                    {
+                        echo '<br/>'.'Aucune modifications effectuées'.'<br/>';
+                    }
 
         
         }
 
         else 
         {
-            echo 'Password et confirmation de mot de passe différents'.'<br/>';
+            echo '<br/>'.'Password et confirmation de mot de passe différents'.'<br/>';
         }
 
     }

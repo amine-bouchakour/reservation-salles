@@ -52,7 +52,7 @@ function planning()
                                 $mois =$resultat[$k][3][5].$resultat[$k][3][6];
                                 $heure=$resultat[$k][3][11].$resultat[$k][3][12];
                                 $ttt=$resultat[$k][1];
-                                $ttt=ucfirst($ttt);
+                                $ttt=ucfirst($ttt); // Titre evenement
                                 $iii=$resultat[$k][0]; //Id evenement
                                 $timestamp = mktime($heure, 0, 0, $mois, $jour, $annee);
                                 $bbb=date('DH', $timestamp);

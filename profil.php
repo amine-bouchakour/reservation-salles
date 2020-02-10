@@ -35,7 +35,9 @@ $resultat= mysqli_fetch_row($query);
 $_SESSION['id']=$resultat[0];
 $_SESSION['login']=$resultat[1];
 $_SESSION['password']=$resultat[2];
-
+$login = $_SESSION['login'];
+$login = lcfirst($login);             
+$login = lcfirst(strtolower($login));
 
 }
 
@@ -48,7 +50,7 @@ $_SESSION['password']=$resultat[2];
 
                 <form action="" method="post">
                     <label for="">Login </label>
-                    <input class="divin4" type="text" name="login" value="<?php echo $_SESSION['login'];?>"><br>
+                    <input class="divin4" type="text" name="login" value="<?php echo $login;?>"><br>
                     <label for="">Password </label>
                     <input class="divin4" type="password" name="password"
                         value="<?php echo $_SESSION['password'];?>"><br>
