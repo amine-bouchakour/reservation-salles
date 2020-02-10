@@ -93,11 +93,11 @@ function planning()
                                
 
 
-                                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.$aaa.'h'.' Libre'.'</a>'.'<td/>';
+                                echo '<td id="planningtab">'.'<a href="reservation-form.php">'.' LIBRE'.'</a>'.'<td/>';
                                 }
                                 else
                                 {
-                                    echo '<td id="planningtab">'.$aaa.'h'.'<td/>';
+                                    echo '<td id="planningtab2">'.$aaa.'h'.'<td/>';
                                 }
                             }
                             echo"</td>";
@@ -128,11 +128,11 @@ function planning()
 <table>
     <thead class="aligntab">
     <td id="planningtab2"></td>
-        <td id="planningtab2">LUNDI</td>
-        <td id="planningtab2">MARDI</td>
-        <td id="planningtab2">MERCREDI</td>
-        <td id="planningtab2">JEUDI</td>
-        <td id="planningtab2">VENDREDI</td>
+        <td id="planningtab2bis">LUNDI</td>
+        <td id="planningtab2bis">MARDI</td>
+        <td id="planningtab2bis">MERCREDI</td>
+        <td id="planningtab2bis">JEUDI</td>
+        <td id="planningtab2bis">VENDREDI</td>
 
     </thead>
     
