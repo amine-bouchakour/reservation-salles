@@ -12,6 +12,8 @@ display: flex;
 flex-wrap: wrap;
 border-radius: 2em;
 background:linear-gradient(white, rgba(235, 145, 60, 0.855)) ;
+padding:0px 2%;
+
 }
 
 
@@ -39,9 +41,9 @@ flex-wrap: wrap;
 
 
 #planningtab{
-padding: 10px 90px 0px 90px;
-width: 30px;
-height: 55px;
+padding: 29px 129px 0px 103px;
+width: 31px;
+height: 53px;
 border: 2px black solid;
 background:linear-gradient(rgb(216, 246, 229),rgb(199, 245, 219),rgb(154, 206, 176)) ;
 border-radius: 0.5em;
@@ -49,10 +51,10 @@ border-radius: 0.5em;
 }
 
 #planningtab4{
-    padding: 5px 90px 0px 90px;
-    width: 30px;
-    height: 60px;
-    border: 2px black solid;
+       padding-top:30px;
+       width: 259px;
+       height: 49px;
+    border: 3px black solid;
     background-color: rgb(232, 239, 248);
     border-radius: 0.5em;
 
@@ -68,7 +70,7 @@ background-color: rgb(233, 177, 156);
 }
 
 #planningtab2{
-width: 208.5px;
+    width: 124.5px;
 padding-top:30px;
 height: 50px;
 border: 2.5px black solid;
@@ -80,10 +82,10 @@ border-radius: 0.5em;
 }
 
 #planningtab2bis{
-width: 200px;
-padding-top:25px;
-height: 85px;
-border: 2px black solid;
+width: 261px;
+padding-top: 25px;
+height: 54px;
+border: 3px black solid;
 background-color: rgba(248, 243, 151, 0.572);
 font-size:27px;
 text-align: center;
@@ -118,9 +120,10 @@ color:rgb(251, 93, 93);
 
 
 #planningtab3{
-padding: 10px 0px 0px 0px;
-width: 210px;
-height: 55px;
+    padding-top:15px;
+
+    width: 261px;
+    height: 66px;
 border: 2px black solid;
 background:linear-gradient(rgb(250, 161, 153),rgb(248, 116, 104),rgb(192, 93, 86)) ;
 border-radius: 0.5em;
@@ -177,7 +180,7 @@ background-color: white;
 }
 
 .flex{
-margin: 0px auto 50px;
+margin: 0px auto 0px;
 display: flex;
 justify-content: space-between;
 border:2px black solid;
